@@ -1,0 +1,136 @@
+<!--Fifth Page-->
+<div data-role="page" id="statisticsPage" data-theme="a">
+	<!-- header -->
+    <div id="header" data-role="header" data-theme="d" data-add-back-btn="true"  data-position="fixed">
+		<h1 class="ui-title" role="heading">Reservation Statistics</h1>
+		<a id="user-button" class="ui-btn-right" data-rel="popup" data-role="button" data-icon="user" data-iconpos="notext" data-inline="true" href="#userPanel"></a>
+    </div>
+	<!-- /content -->
+	<div data-role="content">
+		<div id = "graphDiv2" style="width:98%" ></div>
+		<br />
+		<fieldset  data-role="controlgroup" data-type="horizontal" data-mini="true" style="">
+			    <select name="select-native-2" id="select-native-2" data-mini="true">
+					<option value="0" style="display:none">Reservation</option>
+			        <optgroup label="Type">
+		           		<option value="1">Reserved</option>
+			            <option value="2">Failed</option>
+        			    <option value="3">Re-Scheduled</option>
+        			</optgroup>
+			        <optgroup label="Application">
+            			<option value="5">API</option>
+			            <option value="6">Titan</option>
+        				<option value="7">Topo</option>
+						<option value="8">Config Editor</option>
+    			    </optgroup>
+			    </select>
+                <select name="select-native-2" id="select-native-2" data-mini="true">
+					<option value="0" style="display:none">Devices</option>
+                    <optgroup label="Model">
+						<option value="1">720VXR</option>
+					</optgroup>
+                    <optgroup label="ESP">
+						<option value="2">ASR1002</option>
+					</optgroup>
+                    <optgroup label="RP">
+						<option value="3">ASR1001</option>
+					</optgroup>
+                    <optgroup label="SIP">
+						<option value="4">ASR1004</option>
+					</optgroup>
+				</select>
+                <select name="select-native-2" id="select-native-2" data-mini="true">
+					<option value="0" style="display:none">View</option>
+					<option value="1">Daily</option>
+					<option value="2">Weekly</option>
+					<option value="3">Monthly</option>
+					<option value="4">Quartery</option>
+					<option value="5">Yearly</option>
+				</select>
+				<span id="pickerContainer" ></span>
+    	</fieldset>
+
+
+		<table data-role="table" id="reservation-table" data-mode="columntoggle" class="table-stroke ui-body-d ui-shadow ui-responsive" data-column-btn-theme="a" data-column-btn-text="Columns..." data-column-popup-theme="a" data-mini="true">
+  			<thead>
+    		<tr class="ui-bar-d">
+			    <th>Reservation ID</th>
+			    <th>Reservation Date</th>
+			    <th data-priority="2">Total No. of Reservation</th>
+      			<th data-priority="3">Total No. of Devices</th>
+				<th data-priority="3">API</th>
+				<th data-priority="4">Titan</th>
+				<th data-priority="5">Topo</th>
+				<th data-priority="6">Config Editor</th>
+				<th data-priority="6">Reserved</th>
+				<th data-priority="6">Re-Scheduled</th>
+				<th data-priority="6">Failed</th>
+			</tr>
+		  	</thead>
+			<tbody>
+		    <tr>
+			    <th>1</th>
+			    <td>2013-11-05</td>
+				<td>1</td>
+			    <td>5</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>1</td>
+				<td>1</td>
+				<td>0</td>
+                <td>0</td>
+		   	</tr>
+		    <tr>
+			    <th>1</th>
+			    <td>2013-11-05</td>
+				<td>1</td>
+			    <td>5</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>1</td>
+				<td>1</td>
+				<td>0</td>
+                <td>0</td>
+		   	</tr>
+		    <tr>
+			    <th>1</th>
+			    <td>2013-11-05</td>
+				<td>1</td>
+			    <td>5</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>1</td>
+				<td>1</td>
+				<td>0</td>
+                <td>0</td>
+		   	</tr>
+			</tbody>
+		</table>
+
+	</div>
+    <!-- footer -->
+        <div data-role="footer" data-position="fixed" data-theme="c" class="ui-bar" data-position="fixed">
+            <div id="dock">
+                <ul>
+                    <li>
+                        <a href="#"><span>Config</span><img class="configCar2" src="../../img/configeditor.png" alt="[Config Editor]" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>Admin</span><img class="adminCar" src="../../img/Admin.png" alt="[Administration]" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>RM</span><img class="rmCar" src="../../img/RM.png" alt="[Resource Management]" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>PM</span><img class="pmCar" src="../../img/PM.png" alt="[Power Management]" /></a>
+                    </li>
+                    <li>   
+                        <a href="#"><span>Stats</span><img class="statCar" src="../../img/Statistics.png" alt="[Statistics]" /></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</div>

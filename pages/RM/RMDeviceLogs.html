@@ -1,0 +1,38 @@
+<div data-role="page" id="RMDeviceLogs" data-theme="a">
+	<!-- header -->
+    <div id="header" data-role="header" data-theme="d" >
+		<h1 class="ui-title" role="heading">Device Logs</h1>
+    </div>
+	<div data-role="content">
+		<div>
+			<div style="width:50%;float:left">
+			</div>
+<!--			<div id="paginations" style="float: right;width:50%;text-align: right;">
+			</div>--!>
+		</div>
+		<table style='width:35%'>
+			<tr>
+				<td><input type='radio' id='linkSanity' class='SanityLogs' name='SanityLogs'/></td>
+				<td>Link Sanity</td>
+			</tr>
+			<tr>
+				<td><input type='radio' id='deviceSanity' class='SanityLogs' name='SanityLogs'/></td>
+				<td>Device Sanity</td>
+			</tr>
+		</table>
+		<table>
+	<tr>
+		<textarea id="eventNewDevicelogstext" style="width:100%;height:500px; color:white; background-color:black;" readonly="yes">
+		</textarea>
+			<td>	
+			<a id="rmRefreshLogs" href="RMDeviceLogs.html" style="width:100px;" data-role="button" data-mini="true" data-rel="dialog" >Refresh</a>
+			</td>
+			<td>	
+			<a id="rmCloseLogs" href="" style="width:100px;" data-role="button" data-mini="true" data-rel="dialog" >Close</a>
+			</td>
+
+		</tr>
+	
+		</table>
+		</div>
+

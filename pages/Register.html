@@ -1,0 +1,157 @@
+<html>
+	<head>
+		<script type="text/javascript" src="../scripts/supercommon.js"></script>
+		<script type="text/javascript" src="../scripts/login.js"></script>
+		<script type="text/javascript" src="../scripts/global.js"></script>
+		
+		<script type="text/javascript" src="../scripts/administration.js"></script>
+		<script src="../scripts/jquery-1.9.1.js"></script>	
+<link rel="stylesheet" href="../styles/jquery.mobile-1.4.0-rc.1.css">
+		<script type="text/javascript" src="../scripts/jquery.md5.js"></script>
+	
+    	<script src="../scripts/jquery.mobile-1.4.0-rc.1.js"></script>
+		<body>
+			<div class='accountHeader'> 
+				<center>ACCOUNT INFORMATION</center>
+			</div>
+			<center>
+				<table class="form">
+					<tr>
+						<td style="padding-left: 5px;">
+						   <span style="color: red">*</span> User Name:
+						</td>
+						<td style="height: 26px;">
+							<input class='regInput' id="addtxtUserName" name="txtUserEdit" type="text" onblur="validateUserName(id)" onkeyup="validateUserName(id)" onkeypress="validateUserName(id)" onkeydown="validateUserName(id)" style="width: 150px; " />
+						</td>
+						<td style="padding-left: 5px">
+							<span style="color: red"></span>Cellphone Number:</td>
+						<td style="height: 26px">
+							<input class='regInput' id="addtxtMobileNo" placeholder="+xx-xxx-xxx-xxxx" name="txtUserEdit" type="text" style="width: 150px; " onblur="validateMobileNo(id)"/>
+						</td>
+
+					</tr>
+					<tr>
+						<td style="padding-left: 5px">
+						 <span style="color: red">*</span> Password:</td>
+						<td style="height: 26px">
+							<input class='regInput' placeholder="Enter min.6 characters" id="addtxtPassword" name="txtUserEdit" type="password" style="width: 150px;" onkeypress="validatePasswordFormat(this.value,'')" onkeyup="validatePasswordFormat(this.value,'')" onkeydown="validatePasswordFormat(this.value,'')" onkeydown="validatePasswordFormat(this.value,'')" onpaste="return false" onblur="comparePasswords()"/>
+						
+						<!--/td-->
+						<!--td-->
+						</td>
+						<td style="padding-left: 5px">
+							<span style="color: red"></span>Home Address:</td>
+						<td style="height: 26px">
+							<input class='regInput' id="addtxtHomeAdd" name="txtUserEdit" type="text" style="width: 150px;" onblur="validateHomeAdd(id)"/>
+						</td>
+						
+
+					</tr>
+					<tr>
+						<td style="padding-left: 5px">
+						 <span style="color: red">*</span> Re-enter Password:</td>
+						<td style="height: 26px">
+						<input class='regInput' id="addtxtRePassword" onpaste="return false" name="txtUserEdit" type="password" style="width: 150px; " onblur="comparePasswords()";/>
+						</td>
+						<td style="padding-left: 5px">
+						<span style="color: red">*</span> E-mail Address:</td>
+						<td style="height: 26px">
+						<input class='regInput' id="addtxtEmail" name="txtUserEdit" type="text" style="width: 150px; " onblur="validateEmail(id)"/>
+						</td>
+
+					</tr>
+					<tr>
+						<td style="padding-left: 5px;">
+							<span style="color: red">*</span> First Name:
+						</td>
+						<td class="textBox" style="height: 26px;">
+							<input class='regInput' id="addtxtFirstName" name="txtUserEdit" type="text" style="width: 150px; " onblur="validateFirstName(id)"/>
+						</td>
+						<td style="padding-left: 5px"><span style="color: red"></span>Technology Division:</td>
+						<td style="height: 26px">
+							<input class='regInput' id="addtxtDivision" name="txtUserEdit" type="text" style="width: 150px; " onblur="validateDivision(id)"/>
+						</td>
+					</tr>	
+					<tr>
+						<td style="padding-left: 5px">
+						<span style="color: red"></span> Middle Name:</td>
+						<td style="height: 26px">
+						<input class='regInput' id="addtxtMiddleName" name="txtUserEdit" type="text" style="width: 150px; " onblur="validateMiddleName(id)"/>
+						</td>
+						<td style="padding-left: 5px;">Employee Number:</td>
+						<td style="height: 26px;">
+							<input class='regInput' id="addtxtEmployNo" name="txtUserEdit" type="text" style="width: 150px; " onblur="validateEmployNo(id)"/>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding-left: 5px">
+							<span style="color: red">*</span> Last Name:</td>
+						<td style="height: 26px">
+							<input class='regInput' id="addtxtLastName" name="txtUserEdit" type="text" style="width: 150px;"  onblur="validateLastName(id)"/>
+						</td>
+						<td style="padding-left: 5px">
+							<span style="color: red"></span> User Type:
+						</td>
+						<td style="height: 26px">
+												<input class='regInput' id='addtxtUserLevel' disabled="true" name="txtUserEdit" style="width: 150px; " type='text' value="User" readonly='yes'>
+						</td>
+
+					</tr>
+						<tr>
+						<td style="padding-left: 5px">
+						<span style="color: red"></span>Country:</td>
+						<td >
+						<select class='optionDes a-btn' onchange="changeContactFormat('addtxtCountry')" id='addtxtCountry' name="txtUserEdit" style="width: 150px; border: solid 1px #989898" >
+							<option value="United States"  onChange="changeContactFormat('addtxtCountry')">United States</option>
+							<option value="Philippines" onChange="changeContactFormat('addtxtCountry')">Philippines</option>
+							<option value="United Kingdom"  onChange="changeContactFormat('addtxtCountry')">United Kingdom</option>
+							<option value="Singapore"  onChange="changeContactFormat('addtxtCountry')" >Singapore</option>
+							<option value="Russian Federation"  onChange="changeContactFormat('addtxtCountry')" >Russian Federation</option>
+							<option value="Japan"  onChange="changeContactFormat('addtxtCountry')">Japan</option>
+							<option value="China"  onChange="changeContactFormat('addtxtCountry')">China</option>
+							<option value="India"  onChange="changeContactFormat('addtxtCountry')">India</option>
+							
+						</select>
+						</td>
+							<td style="padding-left: 5px">
+						<span style="color: red"></span>Manager:</td>
+						<td >
+						<select class='optionDes a-btn' onchange="changeContactFormat('addtxtCountry')" id='addtxtCountry' name="txtUserEdit" style="width: 150px; border: solid 1px #989898" >
+							<option value="United States"  onChange="changeContactFormat('addtxtCountry')">United States</option>
+							<option value="Philippines" onChange="changeContactFormat('addtxtCountry')">Philippines</option>
+							<option value="United Kingdom"  onChange="changeContactFormat('addtxtCountry')">United Kingdom</option>
+							<option value="Singapore"  onChange="changeContactFormat('addtxtCountry')" >Singapore</option>
+							<option value="Russian Federation"  onChange="changeContactFormat('addtxtCountry')" >Russian Federation</option>
+							<option value="Japan"  onChange="changeContactFormat('addtxtCountry')">Japan</option>
+							<option value="China"  onChange="changeContactFormat('addtxtCountry')">China</option>
+							<option value="India"  onChange="changeContactFormat('addtxtCountry')">India</option>
+							
+						</select>
+						</td>
+					
+					</tr>
+					<tr>
+						<td style="padding-left: 5px">
+						<span style="color: red"></span>Business Phone Number:</td>
+						<td style="height: 26px">
+						<input class='regInput' id="addtxtPhoneNo" placeholder="+1-(xxx)-xxx-xxxx" name="txtUserEdit" type="text" style="width: 150px; " onblur="validatePhoneNo(id)" />
+						<div id='addPhoneNoFormat'></div>
+						<td><div id="spanaddtxtPhoneNo"></div></td>
+						</td>
+					</tr>
+					<tr>
+						<td id="excesstd" style = "display:none"></td>
+						<td id="unameresult" style = "display:none"></td>
+					</tr>			
+				</table>
+				<table>
+					<tr>
+						<td><a style="width:80px;" id="SubmitButton" href="#SubmitBtn" data-role="button">Submit</a></td>
+						<td><a style="width:80px;" id="CancelButton" href="#CancelBtn" data-role="button">Cancel</a></td>
+					
+					</tr>
+				</table>
+			</center>
+		</body>
+	</head>
+</html>

@@ -1,0 +1,282 @@
+	<table class='noborders' style='width: 100%'>
+		<tr style='width: 100%'>
+			<td>
+				<input id='systemFilter' type='checkbox' onclick="EnableFilter(this,'software','OSselF','OSVersionselF','SWselF','','')"/>
+				<b><i>SOFTWARE</i></b>
+			</td>
+		</tr>
+	</table>
+	<table class='noborders' style='width: 100%'>
+		<tr>		
+			<td style='padding-left: 95px;text-align:right;width:10px;'>
+				<b>OS:</b>	
+			</td>
+			<td style='text-align:left;width:240px;'>
+				<select id='OSselF' style='width:150px' onchange="forFilterArray(this,'OSType');" disabled>
+					<option value='Any'>Any</option>
+				</select>			
+			</td>
+			<td style='text-align: right;width:80px;'>
+				<b>Version:</b>	
+			</td>
+			<td style='text-align:left;width:240px'>
+				<select id='OSVersionselF' style='width:150px' disabled='disabled' onchange="forFilterArray(this,'OSVersion');">
+					<option value='Any'>Any</option>
+				</select>
+			</td>
+			<td  style='text-align: right;width:100px;'>
+				<b>SW Package:</b>	
+			</td>
+			<td style='text-align: left'>
+				<select id='SWselF' style='width:150px' disabled='disabled' onchange="forFilterArray(this,'SoftwarePackage');">
+					<option value='Any'>Any</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	<table class='noborders' style='width: 100%'>
+		<tr >
+			<td>
+				<input id='systemFilter6' type='checkbox' onclick="EnableFilter(this,'system','sysNameselF','ProductselF','VersionselF','','')"/>
+				<b><i>SYSTEM</i></b>
+			</td>
+		</tr>
+	</table>
+	<table class='noborders' style='width: 100%'>
+		<tr>		
+			<td style='padding-left: 68px;text-align:right; width:15px;'>
+				<b>Name:</b>	
+			</td>
+			<td style='text-align:left;width:232px;'>
+				<select id='sysNameselF' style='width:150px' disabled='disabled' onchange="forFilterArray(this,'Model');">
+					<option value='Any'>Any</option>
+				</select>
+			</td>
+			<td style='text-align:right; width:70px;'>
+				<b>Product ID:</b>	
+			</td>
+			<td style='text-align:left;width:250px;'>
+				<select id='ProductselF' style='width:150px' disabled='disabled' onchange="forFilterArray(this,'ProductIdentifier');">
+					<option value='Any'>Any</option>
+				</select>
+			</td>
+			<td style='text-align:right; width:70px;'>
+				<b>Version ID:</b>	
+			</td>
+			<td style='text-align:left;width:230px;'>
+				<select id='VersionselF'  style='width:150px' disabled='disabled' onchange="forFilterArray(this,'VersionIdentifier');">
+					<option value='Any'>Any</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	<table class='noborders' style='width: 100%'>
+		<tr>
+			<td>
+			<!--<input id='RouteFilter' type='checkbox' onclick="EnableFilter(this,'route','routeNameselF','routeProductselF','RouteRedunt','routeVersionselF')" />-->
+				<input id='RouteFilter' type='checkbox' onclick="EnableFilter(this,'route','routeNameselF','routeProductselF','','routeVersionselF')" />
+				<b><i>ROUTE PROCESSOR</i></b>
+			</td>
+		</tr>
+	</table>
+	<table class='noborders' style='width: 100%'>
+		<tr>		
+			<td style='padding-left: 68px;text-align:right; width:15px;'>
+				<b>Name:</b>	
+			</td>
+			<td style='text-align:left;width:232px;'>
+				<select id='routeNameselF' style='width:150px' disabled='disabled' onchange="forFilterArray(this,'RouteProcessorName');">
+					<option value='Any'>Any</option>
+				</select>
+			</td>
+			<td style='text-align:right; width:70px;'>
+				<b>Product ID:</b>	
+			</td>
+			<td style='text-align:left;width:250px;'>
+				<select id='routeProductselF' style='width:150px' disabled='disabled' onchange="forFilterArray(this,'RouteProcessorPid');">
+					<option value='Any'>Any</option>
+				</select>
+			</td>
+			<td style='text-align:right; width:70px;'>
+				<b>Version ID:</b>	
+			</td>
+			<td style='text-align:left;width:230px;'>
+				<select id='routeVersionselF'  style='width:150px' disabled='disabled' onchange="forFilterArray(this,'RouteProcessorVid');">
+					<option value='Any'>Any</option>
+				</select>
+			</td>
+		</tr>
+	<!--<tr style='width: 100%'>
+		<td style='text-align:right;'>
+			<input id='RouteRedunt' type='checkbox' value='Redundant' disabled='disabled'/>
+		</td>
+		<td style='text-align:left;width:10px' >
+			<b>Redundant</b>
+		</td>
+	</tr>-->
+	</table>
+	<table style='width: 100%'  class='noborders'>
+		<tr>
+			<td>
+				<!--<input id='EmbeddedFilter' type='checkbox' onclick="EnableFilter(this,'embedded','embNameselF','embProductselF','embVersionselF','embedRedunt','')"/>-->
+				<input id='EmbeddedFilter' type='checkbox' onclick="EnableFilter(this,'embedded','embNameselF','embProductselF','embVersionselF','','')"/>
+				<b><i>EMBEDDED PROCESSOR</i></b>
+			</td>
+		</tr>
+	</table>
+	<table style='width: 100%'  class='noborders'>
+		<tr>		
+			<td style='padding-left: 68px;text-align:right; width:15px;'>
+				<b>Name:</b>	
+			</td>
+			<td style='text-align:left;width:232px;'>
+				<select id='embNameselF' style='width:150px' disabled='disabled' onchange="forFilterArray(this,'EmbeddedProcessorName');">
+					<option value='Any'>Any</option>
+				</select>
+			</td>
+			<td style='text-align:right; width:70px;'>
+				<b>Product ID:</b>	
+			</td>
+			<td style='text-align:left;width:250px;'>
+				<select id='embProductselF' style='width:150px' disabled='disabled' onchange="forFilterArray(this,'EmbeddedProcessorPid');">
+					<option value='Any'>Any</option>
+				</select>
+			</td>
+			<td style='text-align:right; width:70px;'>
+				<b>Version ID:</b>	
+			</td>
+			<td style='text-align:left;width:230px;'>
+				<select id='embVersionselF'  style='width:150px' disabled='disabled' onchange="forFilterArray(this,'EmbeddedProcessorVid');">
+					<option value='Any'>Any</option>
+				</select>
+			</td>
+		</tr>
+	<!--<tr style='width: 100%'>
+		<td style='text-align:right;'>
+			<input id='embedRedunt' type='checkbox' value='Redundant' disabled='disabled'/>
+		</td>
+		<td style='text-align:left;width:10px' >
+			<b>Redundant</b>
+		</td>
+	</tr>-->
+	</table>
+	<table style='width: 100%'  class='noborders'>
+		<tr>
+			<td>
+				<input id='LineFilter' type='checkbox' onclick="EnableFilter(this,'linecard','lineNameselF','lineProductselF','lineVersionselF','','')"/>
+				<b><i>LINE CARD</i></b>
+			</td>
+		</tr>
+	</table>
+	<table style='width: 100%'  class='noborders'>
+		<tr>		
+			<td style='padding-left: 68px;text-align:right; width:15px;'>
+				<b>Name:</b>	
+			</td>
+			<td style='text-align:left;width:232px;'>
+				<select id='lineNameselF' style='width:150px' disabled='disabled' onchange="forFilterArray(this,'LineCard');">
+					<option value='Any'>Any</option>
+				</select>
+			</td>
+			<td style='text-align:right; width:70px;'>
+				<b>Product ID:</b>	
+			</td>
+			<td style='text-align:left;width:250px;'>
+				<select id='lineProductselF' style='width:150px' disabled='disabled' onchange="forFilterArray(this,'LineCardPid');">
+					<option value='Any'>Any</option>
+				</select>
+			</td>
+			<td style='text-align:right; width:70px;'>
+				<b>Version ID:</b>	
+			</td>
+			<td style='text-align:left;width:230px;'>
+				<select id='lineVersionselF'  style='width:150px' disabled='disabled' onchange="forFilterArray(this,'LineCardVid');">
+					<option value='Any'>Any</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	<table  class='noborders' style='width: 100%'>
+		<tr>
+			<td>
+				<input id='ModuleFilter' type='checkbox' onclick="EnableFilter(this,'module','modNameselF','modProductselF','modVersionselF','','')"/>
+				<b><i>MODULE</i></b>
+			</td>
+		</tr>
+	</table>
+	<table class='noborders' style='width: 100%'>
+		<tr>		
+			<td style='padding-left: 68px;text-align:right; width:15px;'>
+				<b>Name:</b>	
+			</td>
+			<td style='text-align:left;width:232px;'>
+				<select id='modNameselF' style='width:150px' disabled='disabled' onchange="forFilterArray(this,'Module');">
+					<option value='Any'>Any</option>
+				</select>
+			</td>
+			<td style='text-align:right; width:70px;'>
+				<b>Product ID:</b>	
+			</td>
+			<td style='text-align:left;width:250px;'>
+				<select id='modProductselF' style='width:150px' disabled='disabled' onchange="forFilterArray(this,'ModulePid');">
+					<option value='Any'>Any</option>
+				</select>
+			</td>
+			<td style='text-align:right; width:70px;'>
+				<b>Version ID:</b>	
+			</td>
+			<td style='text-align:left;width:230px;'>
+				<select id='modVersionselF'  style='width:150px' disabled='disabled' onchange="forFilterArray(this,'ModuleVid');">
+					<option value='Any'>Any</option>
+				</select>
+			</td>
+		</tr>
+	</table>	
+	<table  class='noborders' style='width: 100%'>
+		<tr>
+			<td>
+				<input id='PortFilter' type='checkbox' onclick="EnableFilter(this,'port','portTypeselF','portMediaselF','portBandselF','','')"/>
+				<b><i>PORT</i></b>
+			</td>
+		</tr>
+	</table>
+	<table class='noborders' style='width: 50%'>
+		<tr >		
+			<td style='padding-left:30px;width:5px'>
+				<b>Speed:</b>	
+			</td>
+			<td style='text-align:left'>
+				<select id='portTypeselF' style='width:150px;margin-left:35px;' disabled='disabled' onchange="enableMedia(this.value,'');forFilterArray(this,'Speed')">
+					<option value="Any">Any</option>
+				<!--<option value="100Mbps">100Mbps</option>
+				<option value="1GigEthernet">1GigEthernet</option>
+				<option value="10GigEthernet">10GigEthernet</option>
+				<option value="40GigEthernet">40GigEthernet</option>
+					<option value="100GigEthernet">100GigEthernet</option>-->
+				</select>
+			</td>
+			<td style='padding-left:30px;width:5px'>
+				<b>Media:</b>	
+			</td>
+			<td style='text-align:left'>
+				<select id='portMediaselF' style='width:150px' disabled='disabled' onchange="forFilterArray(this,'Media')">
+					<option value="Any">Any</option>
+				<!--<option value="RJ-45">RJ-45</option>
+				<option value="SFP">SFP</option>-->
+				</select>
+			</td>
+		</tr>
+	</table>
+	<table class='noborders' style='width: 50%'>
+		<tr>
+			<td style='padding-left:30px;width:50px;text-align:right'>
+				<b>Bandwidth:</b>
+			</td>
+			<td style='text-align:left'>
+				<select id='portBandselF' style='width:150px' disabled='disabled' onchange="forFilterArray(this,'Bandwidth');">
+					<option value='Any'>Any</option>
+					</select>
+			</td>
+		</tr>
+	</table>
+

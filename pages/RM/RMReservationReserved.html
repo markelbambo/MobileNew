@@ -1,0 +1,108 @@
+<!--Sec Page-->
+<div data-role="page" id="resourceManagementPage" data-theme="a">
+	<!-- header -->
+    <div id="header" data-role="header" data-theme="d" data-add-back-btn="true" data-position="fixed">
+		<h1 class="ui-title" role="heading">Resource Management</h1>
+		<a id="user-button" class="ui-btn-right" data-rel="popup" data-role="button" data-icon="user" data-iconpos="notext" data-inline="true" href="#userPanel"></a>
+    </div>
+
+	
+	<div data-role="content">
+
+	<nav data-role="navbar" id='ReserveButtons' style='display:none;' class="ui-navbar ui-mini" role="navigation">
+    <ul class="ui-grid-c">
+
+      <li class="ui-block-b" style='width:33.3%'><a href="RMEditDevice.html" id='ReserveEdit' data-rel="page" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="a" data-inline="true"  style='height:40px;' ><span class="ui-btn-inner"><span class="ui-btn-text">Edit</span><span class="ui-icon ui-icon-grid ui-icon-shadow">&nbsp;</span></span></a></li>
+
+      <li class="ui-block-c" style='width:33.3%' ><a href="RMReleaseDevice.html" id='ReserveRelease' data-transition='pop' data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span"  data-theme="a" data-inline="true"  style='height:40px;' ><span class="ui-btn-inner"><span style='padding-top:5px;' class="ui-btn-text">Release</span><span class="ui-icon ui-icon-search ui-icon-shadow">&nbsp;</span></span></a></li>
+
+      <li class="ui-block-d" style='width:33.3%' ><a href=""  id='ReserveGenerateReport' data-rel="dialog"  data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" style='height:40px;' ><span class="ui-btn-inner"><span class="ui-btn-text">Generate Report</span><span class="ui-icon ui-icon-star ui-icon-shadow">&nbsp;</span></span></a></li>
+    </ul>
+  </nav>
+<!--		<select id="calendarview" onchange='changeReservationView()'>
+					<option>Table View</option>
+					<option>Calendar View</option>
+		</select>
+		<input type="button" value="Release" id="rmRelease" style="width:20%;"/></td>--!>
+		<div style="float: left;margin-top:0.5em;">
+			<td>
+				<a id="rmReserveSelectAll" href="" style="width:100px;" data-role="button" data-mini="true" data-rel="dialog" >Select All</a>
+			</td>
+        	<span>Total Matches: <span id="totalMatchesReserved">0</span></span>
+        </div>
+		
+ 				<!--<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+		    <select name="" id="limitTableRM">
+		        <option value="10">10</option>
+		        <option value="20">20</option>
+		        <option value="50">50</option>
+		    </select>
+		    <select name="" id="select-native-15">
+				<option value="1">Table View</option>
+	            <option value="2">Calendar View</option>
+		    </select>
+		</fieldset>-->
+		<table data-role="table" id="reservationRM-table" data-mode="columntoggle" class="table-stroke ui-body-d ui-shadow ui-responsive" data-column-btn-theme="a" data-column-btn-text="Columns..." data-column-popup-theme="a" data-mini="true">
+  			<thead>
+    		<tr class="ui-bar-d">
+			    <th>Hostname</th>
+			    <th data-priority="1">Start Date</th>
+			    <th data-priority="1">Start Time</th>
+      			<th data-priority="2">User</th>
+				<th data-priority="3">Application</th>
+				<th data-priority="6">Interval</th>
+				<th data-priority="6">Iteration</th>
+				<th data-priority="6">Iteration No.</th>
+				<th data-priority="1">End Date</th>
+				<th data-priority="1">End Time</th>
+				<th data-priority="6">Status</th>
+			</tr>
+		  	</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+<!--	<div data-role="page" id="ReserveButtons" data-theme="a">
+	    <div data-role="header" data-theme="d" data-add-back-btn="true" data-position="fixed">
+        </div>
+		<div data-role="controlgroup" data-type="horizontal" data-mini="true" style="text-align:right" >
+			<table>	
+				<tr>
+					<td>
+						<a id="EditReserve" href="#" data-role="button" style="width:100px;" data-mini="true">Edit</a>
+					</td>
+					<td>
+						<a id="ReleaseReserve" href="#" data-role="button" style="width:100px;" data-mini="true">Release</a>
+					</td>
+					<td>
+						<a id="CencelReserve" href="#" data-role="button" style="width:100px;" data-mini="true">Cancel</a>
+					</td>
+
+				</tr>
+			</table>
+		</div>
+        </div>--!>
+	<!-- footer -->
+        <div data-role="footer" data-position="fixed" data-theme="c" class="ui-bar" data-position="fixed">
+            <div id="dock">
+                <ul>
+                    <li>
+                        <a href="#"><span>Config</span><img class="configCar2" src="../../img/configeditor.png" alt="[Config Editor]" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>Admin</span><img class="adminCar" src="../../img/Admin.png" alt="[Administration]" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>RM</span><img class="rmCar" src="../../img/RM.png" alt="[Resource Management]" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>PM</span><img class="pmCar" src="../../img/PM.png" alt="[Power Management]" /></a>
+                    </li>
+                    <li>   
+                        <a href="#"><span>Stats</span><img class="statCar" src="../../img/Statistics.png" alt="[Statistics]" /></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</div>
+

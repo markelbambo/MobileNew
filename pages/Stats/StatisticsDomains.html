@@ -1,0 +1,152 @@
+<!--Fifth Page-->
+<div data-role="page" id="statisticsDomainPage" data-theme="a">
+	<!-- header -->
+    <div id="header" data-role="header" data-theme="d" data-add-back-btn="true" data-position="fixed">
+		<h1 class="ui-title" role="heading">Reservation Statistics</h1>
+    </div>
+	<!-- /content -->
+	<div data-role="content" id="domainContent">
+		<fieldset  data-role="controlgroup" data-type="horizontal" data-mini="true" style="">
+                <select name="select-native-2" id="statComponent" onchange="changeComponent(this.value);" data-mini="true">
+					<option value="0" >Device</option>
+					<option value="1">Slot</option>
+					<option value="2">Module</option>
+					<option value="3">Port</option>
+				</select>
+                <select name="select-native-2" id="select-native-2" data-mini="true">
+					<option value="0" style="display:none">View</option>
+					<option value="1">Daily</option>
+					<option value="2">Weekly</option>
+					<option value="3">Monthly</option>
+					<option value="4">Quartery</option>
+					<option value="5">Yearly</option>
+				</select>
+				<span id="pickerContainer" ></span>
+    	</fieldset>
+
+		<table data-role="table" id="domain-table0" data-mode="columntoggle" class="table-stroke ui-body-d ui-shadow ui-responsive" data-column-btn-theme="a" data-column-btn-text="Columns..." data-column-popup-theme="a" data-mini="true">
+  			<thead>
+    		<tr class="ui-bar-d">
+			    <th data-priority="2">ID</th>
+			    <th>Date Added</th>
+			    <th data-priority="2">HostName</th>
+      			<th data-priority="6">MgmtIP</th>
+				<th data-priority="6">Console IP</th>
+				<th data-priority="6">Manufacturer</th>
+				<th data-priority="2">Model</th>
+				<th data-priority="6">Device Type</th>
+				<th data-priority="2">Idle(Hrs/Mins)</th>
+				<th data-priority="2">Reservation</th>
+				<th data-priority="2">Idle(%)</th>
+				<th data-priority="2">Reservation (%)</th>
+				<th data-priority="6">OS Version</th>
+				<th data-priority="6">System Memory</th>
+			</tr>
+		  	</thead>
+			<tbody id="tbodyDevice">
+		    <tr>
+			    <th>1</th>
+			    <td>2013-11-05</td>
+				<td>1</td>
+			    <td>5</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>1</td>
+				<td>1</td>
+				<td>0</td>
+                <td>0</td>
+		   	</tr>
+			</tbody>
+		<table style="display:none" data-role="table" id="domain-table1" data-mode="columntoggle" class="table-stroke ui-body-d ui-shadow ui-responsive" data-column-btn-theme="a" data-column-btn-text="Columns..." data-column-popup-theme="a" data-mini="true">
+  			<thead>
+    		<tr class="ui-bar-d">
+			    <th data-priority="2">ID</th>
+			    <th>Date Added</th>
+			    <th data-priority="2">HostName</th>
+      			<th data-priority="6">Slot Number</th>
+				<th data-priority="6">Slot Product Identifier</th>
+				<th data-priority="6">Slot Description</th>
+				<th data-priority="2">Idle(Hrs/Mins)</th>
+				<th data-priority="2">Reservation</th>
+				<th data-priority="2">Idle(%)</th>
+				<th data-priority="2">Reservation (%)</th>
+				<th data-priority="6">OS Version</th>
+				<th data-priority="6">System Memory</th>
+			</tr>
+		  	</thead>
+			<tbody id="tbodySlot">
+			</tbody>
+
+		</table>
+		<table style="display:none" data-role="table" id="domain-table2" data-mode="columntoggle" class="table-stroke ui-body-d ui-shadow ui-responsive" data-column-btn-theme="a" data-column-btn-text="Columns..." data-column-popup-theme="a" data-mini="true">
+  			<thead>
+    		<tr class="ui-bar-d">
+			    <th data-priority="2">ID</th>
+			    <th>Date Added</th>
+			    <th data-priority="2">HostName</th>
+      			<th data-priority="6">MgmtIP</th>
+				<th data-priority="6">Console IP</th>
+				<th data-priority="6">Manufacturer</th>
+				<th data-priority="2">Model</th>
+				<th data-priority="6">Device Type</th>
+				<th data-priority="2">Idle(Hrs/Mins)</th>
+				<th data-priority="2">Reservation</th>
+				<th data-priority="2">Idle(%)</th>
+				<th data-priority="2">Reservation (%)</th>
+				<th data-priority="6">OS Version</th>
+				<th data-priority="6">System Memory</th>
+			</tr>
+		  	</thead>
+			<tbody id="tbodyModule">
+			</tbody>
+
+		</table>
+		<table style="display:none" data-role="table" id="domain-table3" data-mode="columntoggle" class="table-stroke ui-body-d ui-shadow ui-responsive" data-column-btn-theme="a" data-column-btn-text="Columns..." data-column-popup-theme="a" data-mini="true">
+  			<thead>
+    		<tr class="ui-bar-d">
+			    <th data-priority="2">ID</th>
+			    <th>Date Added</th>
+			    <th data-priority="2">HostName</th>
+      			<th data-priority="6">MgmtIP</th>
+				<th data-priority="6">Console IP</th>
+				<th data-priority="6">Manufacturer</th>
+				<th data-priority="2">Model</th>
+				<th data-priority="6">Device Type</th>
+				<th data-priority="2">Idle(Hrs/Mins)</th>
+				<th data-priority="2">Reservation</th>
+				<th data-priority="2">Idle(%)</th>
+				<th data-priority="2">Reservation (%)</th>
+				<th data-priority="6">OS Version</th>
+				<th data-priority="6">System Memory</th>
+			</tr>
+		  	</thead>
+			<tbody id="tbodyPort">
+			</tbody>
+
+		</table>
+
+	</div>
+    <!-- footer -->
+        <div data-role="footer" data-position="fixed" data-theme="c" class="ui-bar" data-position="fixed">
+            <div id="dock">
+                <ul>
+                    <li>
+                        <a href="#"><span>Config</span><img class="configCar2" src="../../img/configeditor.png" alt="[Config Editor]" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>Admin</span><img class="adminCar" src="../../img/Admin.png" alt="[Administration]" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>RM</span><img class="rmCar" src="../../img/RM.png" alt="[Resource Management]" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>PM</span><img class="pmCar" src="../../img/PM.png" alt="[Power Management]" /></a>
+                    </li>
+                    <li>   
+                        <a href="#"><span>Stats</span><img class="statCar" src="../../img/Statistics.png" alt="[Statistics]" /></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</div>

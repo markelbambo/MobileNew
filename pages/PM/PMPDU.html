@@ -1,0 +1,61 @@
+<!--Third Page-->
+<div data-role="page" id="powerManagementPage" data-theme="a">
+	<!-- header -->
+    <div id="header" data-role="header" data-theme="d" data-add-back-btn="true" data-position="fixed">
+		<h1 class="ui-title" role="heading">Power Management</h1>
+		<a id="user-button" class="ui-btn-right" data-rel="popup" data-role="button" data-icon="user" data-iconpos="notext" data-inline="true" href="#userPanel"></a>
+	</div>
+	<!-- /content -->
+	<div data-role="content">
+		<!--<div style="width:100%;margin-bottom:36px;">
+			<div style="width:50%;float:left">
+			</div>
+			<div id="paginations" style="float: right;width:50%;text-align: right;">
+			</div>
+		</div>-->
+		<div style="float: left;margin-top:0.5em;">
+        	<span>Total Matches: <span id="totalMatches">0</span></span>
+        </div>
+		<table data-role="table" id="reservationRM-table" data-mode="columntoggle" class="table-stroke table-stroke ui-body-f ui-shadow ui-responsive" data-column-btn-theme="a" data-column-btn-text="Columns..." data-column-popup-theme="a" data-mini="true">
+  			<thead>
+    		<tr class="ui-bar-d">
+			    <th>Hostname</th>
+			    <th data-priority="1">Start Date</th>
+			    <th data-priority="1">Start Time</th>
+      			<th data-priority="2">User</th>
+				<th data-priority="3">Application</th>
+				<th data-priority="6">Interval</th>
+				<th data-priority="6">Iteration</th>
+				<th data-priority="6">Iteration No.</th>
+				<th data-priority="1">End Date</th>
+				<th data-priority="1">End Time</th>
+				<th data-priority="6">Status</th>
+			</tr>
+		  	</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+	<!-- footer -->
+        <div data-role="footer" data-position="fixed" data-theme="c" class="ui-bar" data-position="fixed">
+            <div id="dock">
+                <ul>
+                    <li>
+                        <a href="#"><span>Config</span><img class="configCar2" src="../../img/configeditor.png" alt="[Config Editor]" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>Admin</span><img class="adminCar" src="../../img/Admin.png" alt="[Administration]" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>RM</span><img class="rmCar" src="../../img/RM.png" alt="[Resource Management]" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>PM</span><img class="pmCar" src="../../img/PM.png" alt="[Power Management]" /></a>
+                    </li>
+                    <li>   
+                        <a href="#"><span>Stats</span><img class="statCar" src="../../img/Statistics.png" alt="[Statistics]" /></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</div>

@@ -1,0 +1,111 @@
+<table id="gridPalette" data-theme="c">
+                <tr>
+                    <td><img id="resDomIco" src="img/grid/resource-domain.png" /><p>Res. Dom.</p></td>
+                    <td><img id="testToolIco" src="img/grid/testtool.png" /><p>Test Tool</p></td>
+					<td><img id="deviceIco" src="img/grid/device.png" /><p>Device</p></td>
+                </tr>
+                <tr>
+                    <td><img id="serverIco" src="img/grid/Server.png" /><p>Server</p></td>
+                    <td><img id="connectIco" src="img/grid/Connectivity.png" /><p>Connectivity</p></td>
+                    <td><img id="interfaceIco" src="img/grid/Interface.png" /><p>Interface</p></td>
+                </tr>
+</table>
+
+<table id="testToolPalette" style="display:none;min-width: 200px;" data-theme="c">
+	<tr style="height: 40px;">
+    	<td colspan="4">
+        	<a href="#" data-role="button" data-icon="back" data-iconpos="notext" data-theme="d" data-mini="true" style="margin-top: -20px; position: absolute; z-index: 999; " class="bckPalette"></a>
+            <div style="" data-role="header" id="PaletteTitle" data-theme="d" data-add-back-btn="false">Test Tool</div>
+    	</td>
+	</tr>
+   	<tr id="testToolPaletteSubTrMain">
+        <td><img did="device" model="ixia" id="testToolSubIxia" src="img/testtool/juniper_55px.png" /><p>IXIA</p></td>
+<!--        <td><img did="devicelist" id="testToolSubList" src="img/testtool/juniper_blue.png" /><p>TestTool List</p></td>-->
+        <td><img did="newtesttool" id="testToolSubNew" src="img/testtool/testtool.png" /><p>New TestTool</p></td>
+    </tr>
+	<tr id="testToolPaletteSubTrIxia" style="display:none;">
+		<td colspan="4"><img class="icon" did="TestTool" model="optiixia" id="testToolSubIxiaOptixia" src="img/testtool/juniper_55px.png" /><p>Optixia</p></td>
+	</tr>
+	<tr id="testToolPaletteSubTrList" style="display:none;">
+        <td colspan="4"><img did="testtoollist" id="testToolSubIxiaList" src="img/testtool/juniper_55px.png" /><p>IXIA</p></td>
+    </tr>
+</table>
+
+
+<table  id="devicePalette" style="display:none;min-width: 200px;" data-theme="c">
+	<tr style="height: 40px;">
+    	<td colspan="4">
+        	<a href="#" data-role="button" data-icon="back" data-iconpos="notext" data-theme="d" data-mini="true" style="margin-top: -20px;position: absolute; z-index: 999; " class="bckPalette"></a>
+            <div style="" data-role="header" id="PaletteTitle" data-theme="d">Device</div>
+        </td>
+    </tr>
+	<tr id="devicePaletteSubTrMain">
+        <td><img did="device" model="cisco" id="deviceSubCisco" src="img/device/cisco_vivid.png" /><p>Cisco</p></td>
+		<td><img did="device" model="cisco" id="deviceSubNew" src="img/device/cisco_vivid.png" /><p>New Device</p></td>
+<!--        <td><img did="devicelist" id="deviceSubList" src="img/testtool/juniper_blue.png" /><p>Device List</p></td>
+        <td><img did="newdevice" id="deviceSubNew" src="img/testtool/juniper_blue_color.png" /><p>New Device</p></td>-->
+    </tr>
+    <tr id="devicePaletteSubTrCisco" style="display:none;">
+        <td colspan="2"><img class="icon" did="device" model="cisco" id="deviceSubCiscoXE" src="img/device/jSeries.png" /><p>XE</p></td>
+		<td colspan="2"><img class="icon" did="device" model="cisco" id="deviceSubCiscoISR-NG" src="img/device/qfp_nolabel_green.png" /><p>ISR-NG</p></td>
+    </tr>
+    <tr id="devicePaletteSubTrList" style="display:none;">
+        <td colspan="4"><img did="devicelist" id="deviceSubCiscoList" src="img/testtool/juniper_55px.png" /><p>Cisco</p></td>
+    </tr>
+</table>
+
+<table  id="serverPalette" style="display:none;min-width: 200px;" data-theme="c">
+                <tr style="height: 40px;">
+                    <td colspan="4">
+                        <a href="#" data-role="button" data-icon="back" data-iconpos="notext" data-theme="d" data-mini="true" style="margin-top: -20px;position: absolute; z-index: 999; " class="bckPalette"></a>
+                        <div style="" data-role="header" id="PaletteTitle" data-theme="d">Server</div>
+                    </td>
+               </tr>
+	<tr id="serverPaletteSubTrMain">
+<!--        <td><img class="icon" id="serverSubWindow" src="img/server/server_windows.png" /><p>Window</p></td>
+        <td><img class="icon" id="serverceSubLinux" src="img/server/server_linux.png" /><p>Linux</p></td>-->
+        <td><img class="icon" id="serverSubNew" src="img/server/6500catalyst.png" /><p>New Server</p></td>
+    </tr>
+</table>
+
+<table  id="connectivityPalette" style="display:none;min-width: 200px;" data-theme="c">
+                <tr style="height: 40px;">
+                    <td colspan="4">
+                        <a href="#" data-role="button" data-icon="back" data-iconpos="notext" data-theme="d" data-mini="true" style="margin-top: -20px;position: absolute; z-index: 999; " class="bckPalette"></a>
+                        <div style="" data-role="header" id="PaletteTitle" data-theme="d">Connectivity</div>
+                    </td>
+                </tr>
+	<tr id="connectivityPaletteSubTrMain">
+        <td><img model="ethernet" did="connectivity" speed="1000" linktype="L1" id="connectivitySubL1" src="img/connectivity/L1.png" /><p>L1</p></td>
+        <td><img model="ethernetl2" did="connectivity" speed="1000" linktype="L2" id="connectivitySubL2" src="img/connectivity/L2.png" /><p>L2</p></td>
+        <td><img model="direct" did="connectivity" speed="" linktype="Open" id="connectivitySubDirect" src="img/connectivity/rj45.png" /><p>Direct Connect</p></td>
+    </tr>
+	<tr id="connectivityPaletteSubTrL1" style="display:none;">
+        <td><img style="width: 45px;" did="connectivity" model="t10-100" speed="100" linktype="L1" class="connector" id="connectivitySubL110/100MBPS" src="img/connectivity/10-100mbps.png" /><p>10/100MBPS</p></td>
+        <td><img style="width: 45px;" did="connectivity" model="t1gb" speed="1000" linktype="L1" class="connector" id="connectivitySubL11GB" src="img/connectivity/1gb.png" /><p>1GB</p></td>
+        <td><img style="width: 45px;" did="connectivity" model="t10gb" speed="10000" linktype="L1" class="connector" id="connectivitySubL110GB" src="img/connectivity/10gb.png" /><p>10GB</p></td>
+		<td><img style="width: 45px;" did="connectivity" model="t40gb" speed="40000" linktype="L1" class="connector" id="connectivitySubL140GB" src="img/connectivity/40gb.png" /><p>40GB</p></td>
+		<td><img style="width: 45px;" did="connectivity" model="t100gb" speed"100000" linktype="L1" class="connector" id="connectivitySubL1100GB" src="img/connectivity/100gb.png" /><p>100GB</p></td>
+    </tr>
+	<tr id="connectivityPaletteSubTrL2" style="display:none;">
+		<td><img style="width: 45px;" did="connectivity" model="l2t10-100" speed="100" linktype="L2" class="connector" id="connectivitySubL110/100MBPS" src="img/connectivity/10-100mbps.png" /><p>10/100MBPS</p></td>
+        <td><img style="width: 45px;" did="connectivity" model="l2t1gb" speed="1000" linktype="L2" class="connector" id="connectivitySubL11GB" src="img/connectivity/1gb.png" /><p>1GB</p></td>
+        <td><img style="width: 45px;" did="connectivity" model="l2t10gb" speed="10000" linktype="L2" class="connector" id="connectivitySubL110GB" src="img/connectivity/10gb.png" /><p>10GB</p></td>
+        <td><img style="width: 45px;" did="connectivity" model="l2t40gb" speed="40000" linktype="L2" class="connector" id="connectivitySubL140GB" src="img/connectivity/40gb.png" /><p>40GB</p></td>
+        <td><img style="width: 45px;" did="connectivity" model="l2t100gb" speed="100000" linktype="L2" class="connector" id="connectivitySubL1100GB" src="img/connectivity/100gb.png" /><p>100GB</p></td>
+    </tr>
+</table>
+
+<table id="interfacePalette" style="display:none;min-width: 200px;" data-theme="c">
+	<tr style="height: 40px;">
+    	<td colspan="4">
+        	<a href="#" data-role="button" data-icon="back" data-iconpos="notext" data-theme="d" data-mini="true" style="margin-top: -20px;position: absolute; z-index: 999; " class="bckPalette"></a>
+            <div style="" data-role="header" id="PaletteTitle" data-theme="d">Interface</div>
+        </td>
+    </tr>
+	<tr id="interfacePaletteSubTrMain">
+        <td><img id="interfaceSubIPV4" src="img/interface/IPv4.png" style="width: 40px;" /><p>IPV4</p></td>
+        <td><img class="icon" id="interfaceSubVLAN" did="interface" model="VLAN" src="img/interface/vlan.png" /><p>VLAN</p></td>
+        <td><img id="interfaceSubPortMonit" src="img/interface/portmonitoring.png" style="width: 40px;"  /><p>Port Monitoring</p></td>
+    </tr>
+</table>

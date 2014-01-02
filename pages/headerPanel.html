@@ -1,0 +1,131 @@
+<!-- header dropdown content -->
+	<div data-role="panel" id="navpanel" data-theme="g" data-display="overlay" data-position="right" class="hey" data-mini="true">
+		<div data-role="collapsible" data-collapsed="true" data-theme="f" data-content-theme="d" data-mini="true">
+			<h4>Config Editor</h4>
+			<ul data-role="listview" data-mini="true">
+				<li data-mini="true"><a href="index.php">Config</a></li>
+				<li data-mini="true"><a href="index.php">Tools</a></li>
+				<li data-mini="true"><a href="index.php">View Options</a></li>
+			</ul>
+		</div>
+		<div data-role="collapsible" data-collapsed="true" data-theme="f" data-content-theme="d" data-mini="true">
+			<h4>Resource Management</h4>
+			<ul data-role="listview" class="RMMenuList" data-autodividers="true">
+				<li data-mini="true" node="Reservation">
+					<a href="index.php?page=rm-reservation-reserved">Reserved</a>
+				</li>
+				<li data-mini="true" node="Reservation">
+					<a href="index.php?page=rm-reservation-connectivity">Connectivity</a>
+				</li>
+				<li data-mini="true" node="Reservation">		
+					<a href="index.php?page=rm-reservation-port">Port</a>
+				</li>
+				<li data-mini="true" node="Reservation">		
+					<a href="index.php?page=rm-reservation-devices">Devices</a>
+				</li>
+				<li data-mini="true" node="Scheduler">
+					<a href="index.php?page=rm-scheduler-event">Event</a>
+				</li>
+				<li data-mini="true" node="Scheduler">
+					<a href="index.php?page=rm-scheduler-history">History</a>
+				</li>
+				<li data-mini="true" node="Manage">
+					<a href="index.php?page=rm-manage-devices">Devices</a>
+				</li>
+			</ul>								
+		</div>
+		<div data-role="collapsible" data-collapsed="true" data-theme="f" data-content-theme="d" data-mini="true">
+			<h4>Power Management</h4>
+			<ul data-role="listview" class="PMMenuList" data-autodividers="true">
+				<li data-mini="true" node="PDU">
+					<a href="index.php?page=pm-pdu">Controller_205</a>
+				</li>
+				<li data-mini="true" node="Outlet">
+					<a href="index.php?page=pm-outlet-devices">Devices</a>
+				</li>
+				<li data-mini="true" node="Outlet">		
+					<a href="index.php?page=pm-outlet-logs">Logs</a>
+				</li>				
+			</ul>
+		</div>
+		<div data-role="collapsible" data-collapsed="true" data-theme="f" data-content-theme="d" data-mini="true">
+			<h4>Administration</h4>
+			<ul data-role="listview" class="AdminMenuList" data-autodividers="true">
+				<li data-mini="true">
+					<a href="index.php?page=admin-users">Users</a>
+				</li>
+				<li data-mini="true">
+					<a href="index.php?page=admin-groups">Groups</a>
+				</li>
+				<li data-mini="true">		
+					<a href="index.php?page=admin-domain">Domain</a>
+				</li>
+				<li data-mini="true">		
+					<a href="index.php?page=admin-accessrights">Access Rights</a>
+				</li>
+				<li data-mini="true" node="System">		
+					<a href="index.php?page=admin-system-serverinformation">Server Information</a>
+				</li>
+				<li data-mini="true" node="Management">		
+					<a href="index.php?page=admin-management-access">Access</a>
+				</li>
+				<li data-mini="true" node="Management">		
+					<a href="index.php?page=admin-system-serverinformation">Email Notification</a>
+				</li>
+				<li data-mini="true" node="Management">		
+					<a href="index.php?page=admin-management-logs">Logs</a>
+				</li>
+				<li data-mini="true" node="Management">		
+					<a href="index.php?page=admin-management-vlan">VLAN Range Allocation</a>
+				</li>
+				<li data-mini="true" node="Management">		
+					<a href="index.php?page=admin-management-power">Power</a>
+				</li>
+			</ul>
+		</div>
+		<div data-role="collapsible" data-collapsed="true" data-theme="f" data-content-theme="d" data-mini="true">
+			<h4>Statistics and Reports</h4>
+			<ul data-role="listview" class="StatisticsMenuList" data-autodividers="true" data-mini="true">
+				<li data-mini="true">
+					<a href="index.php?page=stat-reservation">Reservation</a>
+				</li>
+				<li data-mini="true" node="Domain">
+					<a href="index.php?page=stat-domain">All</a>
+				</li>
+				<li data-mini="true" node="Domain">
+					<a href="index.php?page=stat-domain">Guaranteed</a>
+				</li>
+				<li data-mini="true" node="Domain">
+					<a href="index.php?page=stat-domain">Security</a>
+				</li>
+				<li data-mini="true" node="Domain">
+					<a href="index.php?page=stat-domain">BxB Domain</a>
+				</li>
+				<li data-mini="true" node="Domain">
+					<a href="index.php?page=stat-domain">Expensive</a>
+				</li>
+				<li data-mini="true" node="Domain">
+					<a href="index.php?page=stat-domain">Repair</a>
+				</li>
+				<li data-mini="true" node="User">
+					<a href="index.php?page=stat-user">All</a>
+				</li>
+				<li data-mini="true" node="User">
+					<a href="index.php?page=stat-user">Guaranteed</a>
+				</li>
+				<li data-mini="true" node="User">
+					<a href="index.php?page=stat-user">Security</a>
+				</li>
+				<li data-mini="true" node="User">
+					<a href="index.php?page=stat-user">BxB Domain</a>
+				</li>
+				<li data-mini="true" node="User">
+					<a href="index.php?page=stat-user">Expensive</a>
+				</li>
+				<li data-mini="true" node="User">
+					<a href="index.php?page=stat-user">Repair</a>
+				</li>
+			</ul>
+		</div>
+    </div>
+

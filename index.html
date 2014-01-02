@@ -1,0 +1,1443 @@
+<!doctype html>
+<html>
+<head>
+    <title>Narra Systems</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--CSS LINKS -->
+	<link rel="stylesheet" href="styles/jquery-ui.css">
+ 	<link rel="stylesheet" href="styles/jquery.mobile-1.4.0-rc.1.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/animate-custom.css">
+	<link rel="stylesheet" type="text/css" href="styles/datetimepicker.css" /> 
+	<!--JS Files -->
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script src="scripts/jquery-1.9.1.js"></script>
+    <script src="scripts/jquery.mobile-1.4.0-rc.1.js"></script>
+    <script src="scripts/scripts.js"></script>
+	<script type="text/javascript" src="scripts/login.js"></script>
+    <script type="text/javascript" src="scripts/global.js"></script>
+	<script type="text/javascript" src="scripts/jquery.md5.js"></script>
+    <script src="scripts/configeditor.js"></script>
+    <script src="scripts/highstock.js"></script>
+    <script src="scripts/data.js"></script>
+    <script src="scripts/exporting.js"></script>
+    <script src="scripts/statistics.js"></script>
+    <script src="scripts/stats.js"></script>
+    <script src="scripts/dock.js"></script>
+    <script src="scripts/kinetic-v4.7.4.js"></script>	
+    <script src="scripts/ResourceManagement.js"></script>
+    <script src="scripts/action.js"></script>
+    <script src="scripts/MAINCONFIG.js"></script>
+    <script src="scripts/global.js"></script>
+    <script src="scripts/action.js"></script>
+    <script src="scripts/common.js"></script>
+	<script type="text/javascript" src="scripts/jqm-datebox.core.js"></script>
+	<script type="text/javascript" src="scripts/datepicker.js"></script>
+	<script type="text/javascript" src="scripts/timepicker.js"></script>
+	<script type="text/javascript" src="scripts/jqm-datebox.mode.flipbox.min.js"></script>
+	<!--<script type="application/ecmascript" async="" src="scripts/FileSaver.js"></script>-->
+</head>
+<body>
+	<div data-role="page" id="Login" data-theme="f" class="loginBanner" style="">
+	</div>
+		
+    <div data-role="page" id="configEditorPage" data-theme="a" data-add-back-btn="true" data-position="fixed">
+    </div>
+
+	<!--COMMIT APPLY -->
+    <div data-role="page" id="commitPop" data-theme="a" >
+        <div data-role="header" data-theme="d" style="line-height:2.3em;">
+            <h2>Commit</h2>
+        </div>
+        <div data-role="content" data-theme="g">
+			<table class="ui-responsive" data-mini="true" style="width: 100%">
+				<tr>
+					<td><label for="mydate">Start Date</label></td>
+					<td>
+						<input class = "picker" name="mydate" id="confirm_test" value="" type="date" data-role="datebox" data-options='{"mode": "calbox"}' data-options='{"dateFormat": "mm/dd/YYYY"}' >
+					</td>
+				</tr>
+				<tr>
+					<td><label for="mydate">Start Time</label></td>
+					<td><input class = "picker" name="mydate" id="confirm_test1" value="" data-role="datebox" data-options='{"mode": "timebox"}'></td>
+				</tr>
+				<tr>			
+					<td></td>
+					<td><select name="" id="FlashDurationSel" data-native-menu="false">
+							<option value="duration">Duration</option>
+							<option value="datetime">Date Time</option>
+				      	</select>
+					</td>
+				</tr>
+				<tr>			
+					<td>Duration</td>
+					<td>
+						<div data-role="controlgroup" data-type="horizontal" data-mini="true">
+							<select class="durationChange" name="day" id="durationD" data-native-menu="false">	</select>
+							<select class="durationChange" name="day" id="durationH" data-native-menu="false"> </select>
+							<select class="durationChange" name="day" id="durationM" data-native-menu="false"> </select>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td><label for="mydate">End Date</label></td>
+					<td><input class="picker" name="mydate" id="confirm_test2" type="date" data-role="datebox" data-options='{"mode": "calbox"}' ></td>
+				</tr>
+				<tr>
+					<td><label for="mydate">End Time</label></td>
+					<td><input class="picker" name="mydate" id="confirm_test3" type="date" data-role="datebox" data-options='{"mode": "timebox"}'></td>
+				</tr>
+				<tr>
+					<td><label for="interval">Interval (min)</label></td>
+					<td><input name="mydate" id="interval" type="text" data-role="textbox" value="0" /></td>
+				</tr>
+				<tr>
+					<td><label for="iteration">Iteration: </label></td>
+					<td><input name="mydate" id="iteration" type="text" data-role="textbox" value="1" /></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="right">
+						<div data-role="controlgroup" data-type="horizontal" data-mini="true" style="text-align:right" >
+							<a id="RequestButton" href="#" style="width:100px;" data-role="button" data-mini="true">Request</a><a id="CancelRButton" href="#" data-role="button" style="width:100px;" data-mini="true">Cancel</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+        </div>
+    </div>
+	<!--LOAD ACTIVE Pop Up -->
+    <div data-role="page" id="loadActivePop" data-theme="a">
+        <div data-role="header" data-theme="d">
+            <h2>Load Active</h2>
+        </div>
+        <div data-role="content" data-theme="a">
+
+			<div style="float:left">
+				<div data-role="controlgroup" data-type="horizontal" data-mini="true" style="text-align:right" >
+<!--					<input type="checkbox" name="checkbox-1" id="cbShowAll" />-->
+					<a id="LoadActiveButton" href="#" style="width:100px;" data-role="button" data-mini="true">Load</a>
+					<a id="CloseALButton" href="#" data-role="button" style="width:100px;" data-mini="true">Cancel</a>
+				</div>
+			</div>
+
+			<div id="divloadActiveTable"></div>
+        </div>
+    </div>
+
+    <div data-role="page" id="deviceMenuPop" data-theme="a">
+        <div data-role="header" data-theme="d" data-position="fixed">
+            <h2>Menu</h2>
+        </div>
+        <div data-role="content" data-theme="a">
+
+        </div>
+    </div>
+	<!--Filter -->
+    <div data-role="page" id="FilterMenuPop" data-theme="a">
+        <div data-role="header" data-theme="d"  data-position="fixed">
+            <h2>Cisco System</h2>
+        </div>
+        <div data-role="content" data-theme="a">
+	<!--		 <div id='filterDiv'></div>-->
+			<div style="float:left">
+				<div data-role="controlgroup" data-type="horizontal" data-mini="true" style="text-align:right" >
+<!--					<input type="checkbox" name="checkbox-1" id="cbShowAll" />-->
+					<a id="DoneFButton" href="#" style="width:100px;" data-role="button" data-mini="true">Done</a>
+					<a id="CloseFButton" href="#" data-role="button" style="width:100px;" data-mini="true">Cancel</a>
+				</div>
+			</div>
+
+			<table class='noborders' style='width: 100%'>
+				<tr style='width: 100%'>
+					<td>
+						<input id='systemFilter' type='checkbox' onclick="EnableFilter('software')"/>
+						<div style="text-align:left;margin-left:50px;"><b><i>SOFTWARE</i></b></div>
+					</td>
+				</tr>
+			</table>
+			<table class='noborders' style='width: 100%'>
+				<tr>		
+					<td style='padding-left: 95px;text-align:right;width:10px;'>
+						<b>OS:</b>	
+					</td>
+					<td style='text-align:left;width:240px;'>
+						<select id='OSselF' style='width:150px' onchange="forFilterArray(this,'OSType');" >
+							<option value='Any'>Any</option>
+						</select>			
+					</td>
+					<td style='text-align: right;width:80px;'>
+						<b>Version:</b>	
+					</td>
+					<td style='text-align:left;width:240px'>
+						<select id='OSVersionselF' style='width:150px'  onchange="forFilterArray(this,'OSVersion');">
+							<option value='Any'>Any</option>
+						</select>
+					</td>
+					<td  style='text-align: right;width:100px;'>
+						<b>SW Package:</b>	
+					</td>
+					<td style='text-align: left'>
+						<select id='SWselF' style='width:150px'  onchange="forFilterArray(this,'SoftwarePackage');">
+							<option value='Any'>Any</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+			<table class='noborders' style='width: 100%'>
+				<tr >
+					<td>
+						<input id='systemFilter6' type='checkbox' onclick="EnableFilter('system')"/>
+						<div style="text-align:left;margin-left:50px;" ><b><i>SYSTEM</i></b></div>
+					</td>
+				</tr>
+			</table>
+			<table class='noborders' style='width: 100%'>
+				<tr>		
+					<td style='padding-left: 68px;text-align:right; width:15px;'>
+						<b>Name:</b>	
+					</td>
+					<td style='text-align:left;width:232px;'>
+						<select id='sysNameselF' style='width:150px'  onchange="forFilterArray(this,'Model');">
+							<option value='Any'>Any</option>
+						</select>
+					</td>
+					<td style='text-align:right; width:70px;'>
+						<b>Product ID:</b>	
+					</td>
+					<td style='text-align:left;width:250px;'>
+						<select id='ProductselF' style='width:150px'  onchange="forFilterArray(this,'ProductIdentifier');">
+							<option value='Any'>Any</option>
+						</select>
+					</td>
+					<td style='text-align:right; width:70px;'>
+						<b>Version ID:</b>	
+					</td>
+					<td style='text-align:left;width:230px;'>
+						<select id='VersionselF'  style='width:150px'  onchange="forFilterArray(this,'VersionIdentifier');">
+							<option value='Any'>Any</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+			<table class='noborders' style='width: 100%'>
+				<tr>
+					<td>
+				<!--<input id='RouteFilter' type='checkbox' onclick="EnableFilter(this,'route','routeNameselF','routeProductselF','RouteRedunt','routeVersionselF')" />-->
+						<input id='RouteFilter' type='checkbox' onclick="EnableFilter('route')" />
+						<div style="text-align:left;margin-left:50px;"><b><i>ROUTE PROCESSOR</i></b></div>
+					</td>
+				</tr>
+			</table>
+			<table class='noborders' style='width: 100%'>
+				<tr>		
+					<td style='padding-left: 68px;text-align:right; width:15px;'>
+						<b>Name:</b>	
+					</td>
+					<td style='text-align:left;width:232px;'>
+						<select id='routeNameselF' style='width:150px'  onchange="forFilterArray(this,'RouteProcessorName');">
+							<option value='Any'>Any</option>
+						</select>
+					</td>
+					<td style='text-align:right; width:70px;'>
+						<b>Product ID:</b>	
+					</td>
+					<td style='text-align:left;width:250px;'>
+						<select id='routeProductselF' style='width:150px'  onchange="forFilterArray(this,'RouteProcessorPid');">
+							<option value='Any'>Any</option>
+						</select>
+					</td>
+					<td style='text-align:right; width:70px;'>
+						<b>Version ID:</b>	
+					</td>
+					<td style='text-align:left;width:230px;'>
+						<select id='routeVersionselF'  style='width:150px'  onchange="forFilterArray(this,'RouteProcessorVid');">
+							<option value='Any'>Any</option>
+						</select>
+					</td>
+				</tr>
+				<!--<tr style='width: 100%'>
+			<td 	style='text-align:right;'>
+			<input id='RouteRedunt' type='checkbox' value='Redundant' />
+		</td>
+		<td style='text-align:left;width:10px' >
+			<b>Redundant</b>
+		</td>
+	</tr>-->
+			</table>
+			<table style='width: 100%'  class='noborders'>
+				<tr>
+					<td>
+						<!--<input id='EmbeddedFilter' type='checkbox' onclick="EnableFilter(this,'embedded','embNameselF','embProductselF','embVersionselF','embedRedunt','')"/>-->
+						<input id='EmbeddedFilter' type='checkbox' onclick="EnableFilter('embedded')"/>
+						<div style="text-align:left;margin-left:50px;"><b><i>EMBEDDED PROCESSOR</i></b></div>
+					</td>
+				</tr>
+			</table>
+			<table style='width: 100%'  class='noborders'>
+				<tr>		
+					<td style='padding-left: 68px;text-align:right; width:15px;'>
+						<b>Name:</b>	
+					</td>
+					<td style='text-align:left;width:232px;'>
+						<select id='embNameselF' style='width:150px'  onchange="forFilterArray(this,'EmbeddedProcessorName');">
+							<option value='Any'>Any</option>
+						</select>
+					</td>
+					<td style='text-align:right; width:70px;'>
+						<b>Product ID:</b>	
+					</td>
+					<td style='text-align:left;width:250px;'>
+						<select id='embProductselF' style='width:150px'  onchange="forFilterArray(this,'EmbeddedProcessorPid');">
+							<option value='Any'>Any</option>
+						</select>
+					</td>
+					<td style='text-align:right; width:70px;'>
+						<b>Version ID:</b>	
+					</td>
+					<td style='text-align:left;width:230px;'>
+						<select id='embVersionselF'  style='width:150px'  onchange="forFilterArray(this,'EmbeddedProcessorVid');">
+							<option value='Any'>Any</option>
+						</select>
+					</td>
+				</tr>
+			<!--<tr style='width: 100%'>
+						<td style='text-align:right;'>
+					<input id='embedRedunt' type='checkbox' value='Redundant' />
+				</td>
+					<td style='text-align:left;width:10px' >
+						<b>Redundant</b>
+				</td>
+				</tr>-->
+			</table>
+			<table style='width: 100%'  class='noborders'>
+				<tr>
+					<td>
+						<input id='LineFilter' type='checkbox' onclick="EnableFilter('linecard')"/>
+						<div style="text-align:left;margin-left:50px;"><b><i>LINE CARD</i></b></div>
+					</td>
+				</tr>
+			</table>
+			<table style='width: 100%'  class='noborders'>
+				<tr>		
+					<td style='padding-left: 68px;text-align:right; width:15px;'>
+						<b>Name:</b>	
+					</td>
+					<td style='text-align:left;width:232px;'>
+						<select id='lineNameselF' style='width:150px'  onchange="forFilterArray(this,'LineCard');">
+							<option value='Any'>Any</option>
+						</select>
+					</td>
+					<td style='text-align:right; width:70px;'>
+						<b>Product ID:</b>	
+					</td>
+					<td style='text-align:left;width:250px;'>
+						<select id='lineProductselF' style='width:150px'  onchange="forFilterArray(this,'LineCardPid');">
+							<option value='Any'>Any</option>
+						</select>
+					</td>
+					<td style='text-align:right; width:70px;'>
+						<b>Version ID:</b>	
+					</td>
+					<td style='text-align:left;width:230px;'>
+						<select id='lineVersionselF'  style='width:150px'  onchange="forFilterArray(this,'LineCardVid');">
+							<option value='Any'>Any</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+			<table  class='noborders' style='width: 100%'>
+				<tr>
+					<td>
+						<input id='ModuleFilter' type='checkbox' onclick="EnableFilter('module')"/>
+						<div style="text-align:left;margin-left:50px;" > <b><i>MODULE</i></b></div>
+					</td>
+				</tr>
+			</table>
+			<table class='noborders' style='width: 100%'>
+				<tr>		
+					<td style='padding-left: 68px;text-align:right; width:15px;'>
+						<b>Name:</b>	
+					</td>
+					<td style='text-align:left;width:232px;'>
+						<select id='modNameselF' style='width:150px'  onchange="forFilterArray(this,'Module');">
+							<option value='Any'>Any</option>
+						</select>
+					</td>
+					<td style='text-align:right; width:70px;'>
+						<b>Product ID:</b>	
+					</td>
+					<td style='text-align:left;width:250px;'>
+						<select id='modProductselF' style='width:150px'  onchange="forFilterArray(this,'ModulePid');">
+							<option value='Any'>Any</option>
+						</select>
+					</td>
+					<td style='text-align:right; width:70px;'>
+						<b>Version ID:</b>	
+					</td>
+					<td style='text-align:left;width:230px;'>
+						<select id='modVersionselF'  style='width:150px'  onchange="forFilterArray(this,'ModuleVid');">
+							<option value='Any'>Any</option>
+						</select>
+					</td>
+				</tr>
+			</table>	
+			<table  class='noborders' style='width: 100%'>
+				<tr>
+					<td>
+						<input id='PortFilter' type='checkbox' onclick="EnableFilter('port')"/>
+						<div style="text-align:left;margin-left:50px;"><b><i>PORT</i></b></div>
+					</td>
+				</tr>
+			</table>
+			<table class='noborders' style='width: 50%'>
+				<tr >		
+					<td style='padding-left:30px;width:5px'>
+						<b>Speed:</b>	
+					</td>
+					<td style='text-align:left'>
+						<select id='portTypeselF' style='width:150px;margin-left:35px;' onchange="enableMedia(this.value,'');forFilterArray(this,'Speed')">
+							<option value="Any">Any</option>
+							<!--<option value="100Mbps">100Mbps</option>
+							<option value="1GigEthernet">1GigEthernet</option>
+								<option value="10GigEthernet">10GigEthernet</option>
+							<option value="40GigEthernet">40GigEthernet</option>
+								<option value="100GigEthernet">100GigEthernet</option>-->
+						</select>
+					</td>
+					<td style='padding-left:30px;width:5px'>
+						<b>Media:</b>	
+					</td>
+					<td style='text-align:left'>
+						<select id='portMediaselF' style='width:150px' onchange="forFilterArray(this,'Media')">
+							<option value="Any">Any</option>
+						<!--<option value="RJ-45">RJ-45</option>
+							<option value="SFP">SFP</option>-->
+						</select>
+					</td>
+				</tr>
+			</table>
+			<table class='noborders' style='width: 50%'>
+				<tr>
+					<td style='padding-left:30px;width:50px;text-align:right'>
+						<b>Bandwidth:</b>
+					</td>
+					<td style='text-align:left'>
+						<select id='portBandselF' style='width:150px' onchange="forFilterArray(this,'Bandwidth');">
+							<option value='Any'>Any</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+		
+        </div>
+    </div>
+
+
+    <div data-role="page" id="ResourcePop" data-theme="a">
+        <div data-role="header" data-theme="d">
+            <h2>Resource Domain</h2>
+        </div>
+        <div data-role="content" data-theme="a">
+            <ul data-role="listview" data-mini="true">
+                <li data-mini="true"><a href="#" id="Default">Default</a></li>
+                <li data-mini="true"><a href="#" id="Guaranteed">Guaranteed</a></li>
+                <li data-mini="true"><a href="#" id="Expensive">Expensive</a></li>
+                <li data-mini="true"><a href="#" id="Security">Security</a></li>
+            </ul>
+        </div>
+    </div>
+    <div data-role="page" id="adminDialog" data-theme="a">
+        <div data-role="header" data-theme="d">
+            <h2></h2>
+        </div>
+        <div data-role="content" data-theme="a" style="padding: 0px;">
+			<table style="width:100%;">
+                <tr>
+                    <td><img class="" id="imgUsers" src="img/ADMIN/users.png"><p>Users</p></td>
+                    <td><img class="" id="imgGroups" src="img/ADMIN/groups.png"><p>Groups</p></td>
+                    <td><img class="" id="imgDomain" src="img/ADMIN/resourcedomain.png"><p>Domain</p></td>
+					<td><img class="" id="imgAccRight" src="img/ADMIN/accessright.png"><p>Access Rights</p></td>
+					<td><img class="" id="imgServInfo" src="img/ADMIN/serverinformation.png"><p>Server Information</p></td>
+                </tr>
+				<tr>
+                    <td><img class="" id="imgAccess" src="img/ADMIN/access.png"><p>Access</p></td>
+                    <td><img class="" id="imgEmailNotif" src="img/ADMIN/emailnotification.png"><p>Email Notification</p></td>
+                    <td><img class="" id="imgAdminLogs" src="img/ADMIN/logs.png"><p>Logs</p></td>
+                    <td><img class="" id="imgVlan" src="img/ADMIN/vlanrangeallocation.png"><p>Vlan Range Allocation</p></td>
+                    <td><img class="" id="imgPower" src="img/ADMIN/power.png"><p>Power</p></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div data-role="page" id="pmDialog" data-theme="a">
+        <div data-role="header" data-theme="d">
+            <h2></h2>
+        </div>
+        <div data-role="content" data-theme="a">
+			<table style="width:100%;">
+				<tr>
+					<td><img class="" id="imgPDU" src="img/PM/PDU.png"><p>PDU</p></td>
+					<td><img class="" id="imgDevices" src="img/PM/devices.png"><p>Devices</p></td>
+					<td><img class="" id="imgLogs" src="img/PM/logs.png"><p>Logs</p></td>
+				</tr>
+			</table>
+        </div>
+    </div>
+    <div data-role="page" id="rmDialog" data-theme="a">
+        <div data-role="header" data-theme="d">
+            <h2></h2>
+        </div>
+        <div data-role="content" data-theme="a" style="width:auto;height:auto;">
+<!--				<table>
+					<tbody><tr>          
+					    <td>  
+					<li data-mini="true" data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child" style="width:150px;height:150px;"><img class="imgReservation" id="imgReservation"  src="img/RM/reservation.png"/>Reservation</li>
+					   </td>    
+            			<td>
+      			        <li data-mini="true" data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit" style="width:150px;height:150px;"><img id="imgScheduler" class="imgReservation" src="img/RM/scheduler.png"/>Scheduler</li>
+						</td>
+               		   <td>
+         			     <li data-mini="true" data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit" style="width:150px;height:150px;"><img id="imgManage" class="imgReservation" src="img/RM/manage.png"/></br>Manage</li>
+
+            		  </td>
+            </tr></tbody>
+			</table>-->
+					<div id="ulReserved" style="">
+						<table style="width: 100%;">
+							<tr>
+              	 				<td>
+									<img id="imgRMReserved" src="img/RM/reserved.png" /><p>Reservation Reserved</p>
+<!--								<a href="pages/RM/RMReservationReserved.html" data-transition="flow">Reserved</a>-->
+								</td>
+								<td>
+									<img id="imgRMConnectivity" src="img/RM/connectivity.png" /><p>Reservation Connectivity</p>
+<!--								<a href="pages/RM/RMReservationConnectivity.html" data-transition="flow">Connectivity</a>=-->
+								</td>
+								<td>
+									<img id="imgRMPort" src="img/RM/port.png" /><p>Reservation Port</p>
+<!--								<a href="pages/RM/RMReservationPort.html" data-transition="flow">Port</a>-->
+								</td>
+								<td>
+									<img id="imgRMDevices" src="img/RM/devices.png" /><p>Reservation Devices</p>
+									<!--<a href="pages/RM/RMReservationDevices.html" data-transition="flow"></br>Devices</a>-->
+								</td>
+
+							</tr>
+							<tr>
+								<td>
+									<img id="imgRMHistory" src="img/RM/history.png" /><p>Reservation History</p>
+<!--									<a href="pages/RM/RMReservationHistory.html" data-transition="flow"></br>History</a>-->
+								</td>	
+								<td>
+									<img id="imgRMEvent" src="img/RM/event.png" /><p>Scheduler Event</p>
+<!--									<a href="pages/RM/RMEventScheduler.html" data-transition="flow"></br>Event</a>-->
+								</td>
+								<td>
+									<img id="imgRMSchedHist" src="img/RM/scheduler.png" /><p>Scheduler History</p>
+<!--									<a href="pages/RM/RMEventScheduler.html" data-transition="flow"></br>Event</a>-->
+								</td>
+
+								<td>
+									<img id="imgRMManage" src="img/RM/manage.png"/><p>Manage Devices</p>
+<!--									<a href="pages/RM/RMManageDevice.html" data-transition="flow"></br>Devices</a>-->
+								</td>
+							</tr>
+						</table>
+					</div> 
+        </div>
+    </div>
+    <div data-role="page" id="statsDialog" data-theme="a">
+        <div data-role="header" data-theme="d">
+            <h2>Statistics and Reports</h2>
+        </div>
+        <div data-role="content" data-theme="a">
+			<table style="width:100%;">
+				<tr>
+					<td><img id="imgStatReservation" src="img/Stats/reservation.png"/><p>Reservation</p></td>
+					<td><img id="imgStatDomain" src="img/Stats/domain.png"/><p>Domain</p></td>
+					<td><img id="imgStatUser" src="img/Stats/Users.png"/><p>User</p></td>
+				</tr>
+			</table>
+<!--            <ul data-role="listview" data-mini="true" data-inset="true">
+                <li data-mini="true"><a href="pages/Stats/StatisticsReservation.html" data-transition="flow">Reservation</a></li>
+                <li data-mini="true" data-role="list-divider">Domain</li>
+                <li data-mini="true"><a href="pages/Stats/StatisticsDomains.html" data-transition="flow">Default</a></li>
+                <li data-mini="true"><a href="pages/Stats/StatisticsDomains.html" data-transition="flow">Guaranteed</a></li>
+                <li data-mini="true"><a href="pages/Stats/StatisticsDomains.html" data-transition="flow">Security</a></li>
+                <li data-mini="true"><a href="pages/Stats/StatisticsDomains.html" data-transition="flow">Repair</a></li>
+                <li data-mini="true" data-role="list-divider">User</li>
+                <li data-mini="true"><a href="pages/Stats/StatisticsDomains.html" data-transition="flow">Default</a></li>
+                <li data-mini="true"><a href="pages/Stats/StatisticsDomains.html" data-transition="flow">Guaranteed</a></li>
+                <li data-mini="true"><a href="pages/Stats/StatisticsDomains.html" data-transition="flow">Security</a></li>
+                <li data-mini="true"><a href="pages/Stats/StatisticsDomains.html" data-transition="flow">Repair</a></li>
+            </ul>
+-->
+        </div>
+    </div>
+	<div data-role="page" id="testToolList" data-theme="a">
+        <div data-role="header" data-theme="d" data-add-back-btn="false">
+            <h2>Test Tool List</h2>
+        </div>
+        <div data-role="content" data-theme="a">
+            <ul data-role="listview" data-mini="true">
+                <li data-mini="true"><a href="#" id="Default">Optixia</a></li>
+            </ul>
+        </div>
+    </div>
+<!------################################# popup for deviceList ####################################### ------> 
+
+	<div data-role="page" id="ConfigManagePop" data-theme="a">
+        <div data-role="header" data-theme="d" data-position="fixed">
+            <h2>Manage Devices</h2>
+        </div>
+        <div id="append" data-role="content" data-theme="a">
+	<div data-role="content" style="margin-top:50px;">
+		<div style="width:50%;float:left">
+<!--			<div id="paginations" style="float: right;width:50%;text-align: right;">
+			</div>--!>
+		</div>
+		<table>
+			<tr>
+			<td>
+				<select id="dlistddown">
+					<option value="hostname">Host Name</option>
+					<option value="model">Model</option>
+					<option value="managementip">Management IP</option>
+					<option value="manufacturer">Manufacturer</option>
+					<option value="consoleip">Console IP</option>
+				</select>
+			</td>
+			<td><input type="text" id="dFilter" /></td>
+			<td><a id="dlistDone" href="#" data-role="button" style="width:100px;" data-mini="true" class="ui-link ui-btn ui-shadow ui-corner-all ui-mini ui-last-child" role="button" data-icon="check" data-transition="pop" data-direction="reverse">Done</a>
+			</td>
+			<td>
+				<a id="dlistCancel" href="#" data-role="button" style="width:100px;" data-mini="true" class="ui-link ui-btn ui-shadow ui-corner-all ui-mini ui-last-child" role="button" data-icon="delete" data-transition="pop" data-direction="reverse" data-rel="back">Cancel</a>
+
+			</td>
+			</tr>
+		</table>
+		</div>
+		<table data-role="table" id="manageConfigTable" data-mode="columntoggle" class="table-stroke ui-body-d ui-shadow ui-responsive" data-column-btn-theme="a" data-column-btn-text="Columns..." data-column-popup-theme="a" data-mini="true">
+  			<thead>
+    		<tr class="ui-bar-d">
+			    <th>ID</th>
+			    <th data-priority="1">HostName</th>
+				<th data-priority="1">MgmtIp</th>
+				<th data-priority="1">Console IP</th>
+				<th data-priority="1">Manufacturer</th>
+				<th data-priority="1">Model</th>	
+				<th data-priority="1">Status</th>	
+				<th data-priority="1">User</th>	
+				<th data-priority="1">Remaining time</th>	
+				<th data-priority="1">Av Ports</th>	
+				<th data-priority="1">Connectivity</th>	
+			</tr>
+		  	</thead>
+			<tbody>
+			</tbody>
+		</table>
+
+		</div>
+		
+    </div>
+<!----- end of deviceList -------->
+<!--		popup		-->
+    <div id="YesNoPopUp" data-role="page" data-theme="a" data-close-btn="none">
+        <div data-role="header" data-theme="d">
+            <div id="YesNoPopUpHeader">
+			</div>
+        </div>
+        <div data-role="content" data-theme="a">
+            <table class="ui-responsive" data-mini="true" style="width: 100%">
+                <tr>
+                    <td>
+                        <div id="YesNoPopUpInfo">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        <div data-role="controlgroup" data-type="horizontal" data-mini="true" style="text-align:right" >
+                            <a id="yesButton" href="#" style="width:100px;" data-role="button" data-mini="true">Yes</a>
+                            <a id="noButton" href="#" data-role="button" style="width:100px;" data-mini="true" data-rel="back">No</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="OkPopUp" data-role="page" data-theme="a" data-close-btn="none">
+        <div data-role="header" data-theme="d">
+            <div id="OkPopUpHeader">
+			</div>
+        </div>
+        <div data-role="content" data-theme="a">
+            <table class="ui-responsive" data-mini="true" style="width: 100%">
+                <tr>
+                    <td>
+                        <div id="OkPopUpInfo">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        <div data-role="controlgroup" data-type="horizontal" data-mini="true" style="text-align:right" >
+                            <a id="okButton" href="#" style="width:100px;" data-role="button" data-mini="true">Ok</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+<!--        end of popup       -->
+
+<!-- popup for custom view -->
+	<div data-role="page" id="CustomViewPopUp" data-theme="a">
+        <div data-role="header" data-theme="d">
+            <h2>Custom View</h2>
+		</div>
+	    <div data-role="content" data-theme="a">
+        	<table class="ui-responsive" data-mini="true" style="width: 100%">
+                <tr>
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<legend></legend>
+								<input type="checkbox" name="checkConfigname" id="checkConfigname" class="custom" />
+    	                        	<label for="checkConfigname">Configuration Name</label>
+					</div>
+				</tr>
+				<tr>
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<legend>Device:</legend>
+								<input type="checkbox" name="checkhostname" id="checkhostname" class="custom" />
+									<label for="checkhostname">Host Name</label>
+							    <input type="checkbox" name="checkmanagementip" id="checkmanagementip" class="custom" />
+									<label for="checkmanagementip">Management IP</label>
+								<input type="checkbox" name="checkconsoleip" id="checkconsoleip" class="custom" />
+									<label for="checkconsoleip">Console IP</label>
+								<input type="checkbox" name="checkloopbackadd" id="checkloopbackadd" class="custom" />
+									<label for="checkloopbackadd">Loopback Address</label>
+								<input type="checkbox" name="checkosversion" id="checkosversion" class="custom" />
+                                    <label for="checkosversion">OS Version</label>
+                                <input type="checkbox" name="checksoftwarepack" id="checksoftwarepack" class="custom" />
+                                    <label for="checksoftwarepack">Software Package</label>
+						</fieldset>
+					</div>
+                </tr>
+                <tr>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <legend>Port</legend>
+                                <input type="checkbox" name="checkinterfaceip" id="checkinterfaceip" class="custom" />
+                                    <label for="checkinterfaceip">Interface IP</label>
+								<input type="checkbox" name="checkinterfacename" id="checkinterfacename" class="custom" />
+                                    <label for="checkinterfacename">Interface Name</label>
+                    </div>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        <div data-role="controlgroup" data-type="horizontal" data-mini="true" style="text-align:right" >
+                            <a id="okButton" href="#" style="width:100px;" data-role="button" data-mini="true">Ok</a>
+                            <a id="okButton" href="#" style="width:100px;" data-role="button" data-mini="true">Cancel</a>	
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>	
+    </div>
+
+<!-- end popup for custom view -->
+
+<!-- Grid popup -->
+        <div data-role="page" id="editGridPopup" data-theme="a" style="width=26%;">
+        <div data-role="header" data-theme="d">
+            <h2>Edit Grid</h2>
+        </div>
+        <div data-role="content" data-theme="g">
+			<table class="ui-responsive" data-mini="true" style="width: 100%">
+				<tr>
+					<td><input name="gridSize" maxlength="2" id="gridValue" type="text" data-role="textbox" value="" /></td>
+				</tr>
+				<tr>
+					<td colspan="1" align="right">
+						<div data-role="controlgroup" data-type="horizontal" data-mini="true" style="text-align:right" >
+							<a id="submitValue" href="#" style="width:100px;" data-role="button" data-mini="true">Done</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+        </div>
+    </div>
+
+<!-- End of Grid popup -->
+<div data-role="page" id="loadConfig" data-theme="a">
+	<div data-role="header" data-theme="d" data-add-back-btn="false">
+    	<h2>Load Configuration</h2>
+    </div>
+    <div data-role="content" data-theme="a" style="text-align: center;">
+		Device/s on the canvas will be cleared.<br/>
+		<select id="loadConfSelect" data-inline="true"><option>Select Configuration</option></select>
+		<select id="loadConfTypeSelect" data-inline="true">
+			<option value="static">Static</option>
+			<option value="dynamic">Dynamic</option>
+			<option value="testbed">Testbed</option>
+			<option value="file">File</option>
+		</select><br/>
+<!--		<div id="fileDiv" style="border: 1px solid rgb(197, 185, 185);border-radius: 4px;width: 100%;display:none;">
+  			<input type="file" id="fileInput">
+			<select id="fileInput" data-inline="true"><option>Select File</option></select>
+			<span style="font-size:11px; color:#666666; margin-left:59px;">Only .xml files are supported for the meantime.</span>
+		</div>-->
+		<a href="#" id="okLoadConf" data-role="button" data-mini="true" data-inline="true" style="width: 40px;">Ok</a>
+		<a href="#" id="cancelLoadConf" data-role="button" data-mini="true" data-inline="true">Cancel</a>
+    </div>
+</div>
+
+<div data-role="page" id="saveConfig" data-theme="a">
+	<div data-role="header" data-theme="d" data-add-back-btn="false">
+    	<h2>Save Configuration</h2>
+    </div>
+    <div data-role="content" data-theme="a" style="text-align: center;">
+		<table style="width: 100%;">
+			<tr>
+				<td>Filename:</td>
+				<td colspan="4"><input type="text" id="saveConfFileName"></td>
+			</tr>
+			<tr>
+                <td>File Type:</td>
+                <td style="text-align: left;">
+					<select id="saveConfFileType" data-inline="true" data-mini="true">
+						<option value="database">Database</option><option value="file">File</option>
+					</select>
+				</td>
+				<td class="dbType">
+					<select id="saveConfFileTypeDBType" data-inline="true" data-mini="true">
+                        <!--<option value="static">Static</option>--><option value="dynamic">Dynamic</option><option value="testbed">Testbed</option>
+                    </select>
+				</td>
+				<td class="fileType" style="display:none;">
+					<select id="saveConfFileTypeFileExt" data-inline="true" data-mini="true">
+                        <option value="xml">.xml</option><!--<option value="titan">.titan</option>--><option value="topo">.topo</option>
+                    </select>
+				</td>
+				<td class="fileType" style="display:none;">
+					<select id="saveConfFileTypeFileType" data-inline="true" data-mini="true">
+                        <option value="dynamic">Dynamic</option>
+                    </select>
+				</td>
+            </tr>
+		</table><br/>
+		<textarea class="input" id="saveConfFileTxtAreaXML" style="display:none;"></textarea>
+		Static and Dynamic file will be saved to database.<br/>
+<!--		<input type="submit" id="submitSAveFile" data-mini="true" data-inline="true" style="width: 40px;display:none;" value="Download" class="fileType"/>-->
+		<a href="#" id="submitSAveFile" data-role="button" data-mini="true" data-inline="true" style="" class="fileType">Download</a>
+		<a href="#" id="okSaveConf" data-role="button" data-mini="true" data-inline="true" style="width: 40px;">Ok</a>
+		<a href="#" id="cancelSaveConf" data-role="button" data-mini="true" data-inline="true">Cancel</a>
+    </div>
+</div>
+<div data-role="page" id="saveAsConfig" data-theme="a">
+    <div data-role="header" data-theme="d" data-add-back-btn="false">
+        <h2>Save As</h2>
+    </div>
+    <div data-role="content" data-theme="a" style="text-align: center;">
+        <table>
+            <tr>
+                <td>Filename:</td>
+                <td><input type="text" id="saveAsConfFileName" /></td>
+            </tr>
+            <tr>
+                <td>File Type:</td>
+                <td>
+					<select id="saveAsConfFileType" data-inline="true">
+						<option value="database">Database</option><option value="file">File</option>
+					</select>
+					<select id="saveAsConfFileTypeXml" data-inline="true">
+                        <option value="xml">.xml</option><option value="titan">.titan</option>><option value="top">.topo</option>
+                    </select>
+					<select id="saveAsConfFileTypeDynaTest" data-inline="true">
+                        <option value="dynamic">Dynamic</option><option value="testbed">Testbed</option>
+                    </select>
+				</td>
+            </tr>
+        </table><br/>
+        Dynamic file will be saved to database.<br/>
+        <a href="#" id="okSaveConf" data-role="button" data-mini="true" data-inline="true" style="width: 40px;">Ok</a>
+        <a href="#" id="saveLoadConf" data-role="button" data-mini="true" data-inline="true">Cancel</a>
+    </div>
+</div>
+
+<!-- popup for Debug enable disable -->
+	<div data-role="page" id="debugPopup" data-theme="a">
+        <div data-role="header" data-theme="d">
+            <div id="debugheader">
+            </div>
+            <!-- <h2>Debug</h2> -->
+		</div>
+	    <div data-role="content" data-theme="a">
+        	<table class="ui-responsive" data-mini="true" style="width: 100%">
+                <tr>
+					<fieldset data-role="controlgroup">
+				    	<!--<legend>Debug:</legend>-->
+			    	     	<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
+			         	<label for="radio-choice-1">Enable</label>
+         					<input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
+			         	<label for="radio-choice-2">Disable</label>
+				    </fieldset>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        <div data-role="controlgroup" data-type="horizontal" data-mini="true" style="text-align:right" >
+                            <a id="okButton" href="#" style="width:100px;" data-role="button" data-mini="true">Ok</a>
+                            <a id="okButton" href="#" style="width:100px;" data-role="button" data-mini="true">Cancel</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>	
+    </div>
+
+<!-- end popup for Debug enable disable -->
+
+<div data-role="page" id="deleteConfig" data-theme="a">
+    <div data-role="header" data-theme="d" data-add-back-btn="false">
+        <h2>Delete Configuration</h2>
+    </div>
+    <div data-role="content" data-theme="a" style="text-align: center;">
+        <select id="deleteConfSelect" data-inline="true"><option>Select Configuration</option></select>
+        <select id="deleteConfTypeSelect" data-inline="true">
+            <option value="static">Static</option>
+            <option value="dynamic">Dynamic</option>
+            <option value="testbed">Testbed</option>
+            <option value="file">File</option>
+        </select><br/>
+        <a href="#" id="okDeleteConf" data-role="button" data-mini="true" data-inline="true" style="width: 40px;">Ok</a>
+        <a href="#" id="cancelDeleteConf" data-role="button" data-mini="true" data-inline="true">Cancel</a>
+    </div>
+</div>
+
+<div data-role="page" id="deviceConfig" data-theme="a" style="width:900px;margin-left:auto;margin-right:auto;">
+    <div data-role="header" data-theme="d" data-add-back-btn="false">
+        <h2>Device Configuration</h2>
+    </div>
+    <div data-role="content" data-theme="a" style="text-align: center;">
+		<p id="devNameDevConf"></p>
+		<table data-role="table" data-mode="columntoggle" class="table-stroke ui-body-d ui-shadow ui-responsive" data-column-btn-theme="a" data-column-btn-text="Columns..." data-column-popup-theme="a" data-mini="true">
+			<thead>
+            <tr class="ui-bar-d">
+				<th>HostName</th>
+				<th data-priority="6">OSVersion</th>
+				<th>Management IP</th>
+				<th>Console IP</th>
+				<th>Model</th>
+				<th data-priority="6">Manufacturer</th>
+				<th>Exclusivity</th>
+				<th data-priority="6">Status</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td id="hostnameDevConf"></td><td id="OSVerDevConf"></td><td id="mangmntIPDevConf"></td><td id="consoleIPDevConf"></td><td id="modelDevConf"></td><td id="manufacturerDevConf"></td><td id="exclusivityDevConf"></td><td id="statusDevConf"></td>
+			</tr>
+			</tbody>
+		</table><br/>
+        <a href="#" id="okDeviceConf" data-role="button" data-mini="true" data-inline="true" style="width: 40px;">Ok</a>
+        <a href="#" id="cancelDeviceConf" data-role="button" data-mini="true" data-inline="true">Cancel</a>
+    </div>
+</div>
+<div data-role="page" id="autoDisDevConfig" data-theme="a" style="width:100%;margin-left:auto;margin-right:auto;">
+    <div data-role="header" data-theme="d" data-add-back-btn="false">
+        <h2>Discover Device</h2>
+    </div>
+    <div data-role="content" data-theme="a" style="text-align: center;">
+        Please select devices for discovery.<br/>
+		Device 1: <select data-inline="true"></select><br/>
+		Device 2: <select data-inline="true"></select><br/>
+        <a href="#" id="okAutoDDeviceConf" data-role="button" data-mini="true" data-inline="true" style="width: 40px;">Ok</a>
+        <a href="#" id="cancelAutoDDeviceConf" data-role="button" data-mini="true" data-inline="true">Cancel</a>
+    </div>
+</div>	
+<div data-role="page" id="newDeviceDialog" data-theme="a" data-mini="true" style="width: 400px;margin-left: auto;margin-right: auto;">
+	<div data-role="header" data-theme="d">
+    	<h1 style="">New Device</h1>
+   	</div>
+    <div data-role="content">
+		<table style="text-align:center;">
+			<tr>
+				<td style="text-align:right;">Select Type:</td><td><select><option value="manual">Manual</option><option value="auto">Auto</option></select></td>
+			</tr>
+			<tr><td colspan="2"><p style="font-size:15px;">Device Information</p></td></tr>
+			<tr><td style="text-align:right;">Hostname:</td><td><input type="text" id="newDeviceHostname"></td></tr>
+			<tr><td style="text-align:right;">Device type:</td><td><select><option value="">Select</option></select></td></tr>
+			<br/>
+			<tr><td style="text-align:right;"><select><option value="mangmntIp">Management IP</option></select></td><td><input type="text" id="newDeviceMngtIp"></td></tr>
+			<tr><td style="text-align:right;"><input type="checkbox" id="newDevicePortChk">Port:</td><td><input type="text" id="newDevicePortText"></td></tr>
+			<tr><td style="text-align:right;">Username:</td><td><input type="text" id="newDeviceUsername"></td></tr>
+			<tr><td style="text-align:right;">Password:</td><td><input type="password" id="newDevicePassword"></td></tr>
+			<tr><td style="text-align:right;">Management Interface:</td><td><input type="text" id="newDeviceMngtInter"></td></tr>
+			<tr><td style="text-align:right;">Map Partner ports:</td><td><input type="checkbox" id="newDeviceMapPartnerChk"></td></tr>
+			<tr><td style="text-align:right;">Optional Values:</td><td><input type="checkbox" id="newDeviceOptionalChk"></td></tr>
+			<tr><td style="text-align:right;">Domain:</td><td><select><option value="">Default</option></select></td></tr>
+		</table>
+		<a href="#" id="okAutoDDeviceConf" data-role="button" data-mini="true" data-inline="true" style="width: 40px;">Ok</a>
+        <a href="#" id="cancelAutoDDeviceConf" data-role="button" data-mini="true" data-inline="true">Cancel</a>
+    </div>
+</div>
+<div data-role="page" id="newTestToolDialog" data-theme="a" data-mini="true" style="width: 400px;margin-left: auto;margin-right: auto;">
+    <div data-role="header" data-theme="d">
+        <h1 style="">New Test Tool</h1>
+    </div>
+    <div data-role="content">
+        <table style="text-align:center;">
+            <tr>
+                <td style="text-align:right;">Select Type:</td><td><select><option value="manual">Manual</option><option value="auto">Auto</option></select></td>
+            </tr>
+            <tr><td colspan="2"><p style="font-size:15px;">Test Tool Information</p></td></tr>
+            <tr><td style="text-align:right;">Hostname:</td><td><input type="text" id="newDeviceHostname"></td></tr>
+            <tr><td style="text-align:right;">Device type:</td><td><select><option value="">Select</option></select></td></tr>
+            <br/>
+            <tr><td style="text-align:right;"><select><option value="mangmntIp">Management IP</option></select></td><td><input type="text" id="newDeviceMngtIp"></td></tr>
+            <tr><td style="text-align:right;"><input type="checkbox" id="newDevicePortChk">Port:</td><td><input type="text" id="newDevicePortText"></td></tr>
+            <tr><td style="text-align:right;">Username:</td><td><input type="text" id="newDeviceUsername"></td></tr>
+            <tr><td style="text-align:right;">Password:</td><td><input type="password" id="newDevicePassword"></td></tr>
+            <tr><td style="text-align:right;">Management Interface:</td><td><input type="text" id="newDeviceMngtInter"></td></tr>
+            <tr><td style="text-align:right;">Map Partner ports:</td><td><input type="checkbox" id="newDeviceMapPartnerChk"></td></tr>
+            <tr><td style="text-align:right;">Optional Values:</td><td><input type="checkbox" id="newDeviceOptionalChk"></td></tr>
+            <tr><td style="text-align:right;">Domain:</td><td><select><option value="">Default</option></select></td></tr>
+        </table>
+        <a href="#" id="okAutoDDeviceConf" data-role="button" data-mini="true" data-inline="true" style="width: 40px;">Ok</a>
+        <a href="#" id="cancelAutoDDeviceConf" data-role="button" data-mini="true" data-inline="true">Cancel</a>
+    </div>
+</div>
+<div data-role="page" id="newServerDialog" data-theme="a" data-mini="true" style="width: 400px;margin-left: auto;margin-right: auto;">
+    <div data-role="header" data-theme="d">
+        <h1 style="">New Server</h1>
+    </div>
+    <div data-role="content">
+        <table style="text-align:center;">
+            <tr>
+                <td style="text-align:right;">Select Type:</td><td><select><option value="manual">Manual</option><option value="auto">Auto</option></select></td>
+            </tr>
+            <tr><td colspan="2"><p style="font-size:15px;">Server Information</p></td></tr>
+            <tr><td style="text-align:right;">Hostname:</td><td><input type="text" id="newDeviceHostname"></td></tr>
+            <tr><td style="text-align:right;">Device type:</td><td><select><option value="">Select</option></select></td></tr>
+            <br/>
+            <tr><td style="text-align:right;"><select><option value="mangmntIp">Management IP</option></select></td><td><input type="text" id="newDeviceMngtIp"></td></tr>
+            <tr><td style="text-align:right;"><input type="checkbox" id="newDevicePortChk">Port:</td><td><input type="text" id="newDevicePortText"></td></tr>
+            <tr><td style="text-align:right;">Username:</td><td><input type="text" id="newDeviceUsername"></td></tr>
+            <tr><td style="text-align:right;">Password:</td><td><input type="password" id="newDevicePassword"></td></tr>
+            <tr><td style="text-align:right;">Management Interface:</td><td><input type="text" id="newDeviceMngtInter"></td></tr>
+            <tr><td style="text-align:right;">Map Partner ports:</td><td><input type="checkbox" id="newDeviceMapPartnerChk"></td></tr>
+            <tr><td style="text-align:right;">Optional Values:</td><td><input type="checkbox" id="newDeviceOptionalChk"></td></tr>
+            <tr><td style="text-align:right;">Domain:</td><td><select><option value="">Default</option></select></td></tr>
+        </table>
+        <a href="#" id="okAutoDDeviceConf" data-role="button" data-mini="true" data-inline="true" style="width: 40px;">Ok</a>
+        <a href="#" id="cancelAutoDDeviceConf" data-role="button" data-mini="true" data-inline="true">Cancel</a>
+    </div>
+</div>
+
+
+<!--- ###########################   FOR  EDIT CONFIG NAME ################## -->
+<div data-role="page" id="editConfigName" data-theme="a" style="width:50%; margin-left:auto; margin-right:auto;">
+        <div data-role="header" data-theme="d">
+            <h2>Configuration Name</h2>
+        </div>
+        <div data-role="content" data-theme="g" style="text-align:center">
+			<table>
+				<tr><td>
+					Configuration Name : 
+				</td><td>
+					<input type="text" id="txtConfigName" size="45" onkeypress="return checkValConfigText(event)"/>
+				</td></tr>
+			</table>
+			<a href="#" id="okEditConfig" data-role="button" data-mini="true" data-inline="true" style="width: 40px;"  style="" >Ok</a>
+        	<a href="#" id="cancelEditConfig" data-role="button" data-mini="true" data-inline="true"  style="" >Cancel</a>
+        </div>
+</div>
+<!-- Popup for device sanity, access sanity, connectivity, link sanity and enable interface -->
+<div data-role="page" id="DeviceConfigStatus" data-theme="a" data-mini="true" style="width: auto; height: 600px;"><!--margin-left: auto;margin-right: auto;">-->
+    <div data-role="header" data-theme="d">
+        <h1 style="">Device Configuration Status</h1>
+    </div>
+	<div data-role="navbar" id="tabs">
+		<ul>
+			<li style="width: auto;"><a href="#tabs-1">Device Sanity</a></li>
+			<li style="width: auto;"><a href="#tabs-2">Access Sanity</a></li>
+			<li style="width: auto;"><a href="#tabs-3">Connectivity</a></li>
+			<li style="width: auto;"><a href="#tabs-4">Link Sanity</a></li>
+			<li style="width: auto;"><a href="#tabs-5">Enable Interface</a></li>
+		</ul>
+		<div id="tabs-1">
+  		<div id="tab-01"  data-role="content" style="border-top-width: 0px; padding-top: 0px; overflow: auto;">
+			<font size="3">Device Status</font><br>
+			<font size="2">Total number of devices:</font>
+			<table data-role="table" id="tabletest-table" class="table-stroke ui-body-d ui-shadow ui-responsive"> 
+            <thead style="">
+            <tr class="ui-bar-d">
+                <th data-colstart="1" style="padding-top: 0px;">HostName</th>
+                <th data-colstart="2" style="padding-top: 0px;">ManagementIP</th>
+                <th data-colstart="3" style="padding-top: 0px;">ConsoleIP</th>
+                <th data-colstart="4" style="padding-top: 0px;">Manufacturer</th>
+                <th data-colstart="5" style="padding-top: 0px;">Model</th>
+                <th data-colstart="6" style="padding-top: 0px;">Login</th>
+                <th data-colstart="7" style="padding-top: 0px;">HostNameVerification</th>
+                <th data-colstart="8" style="padding-top: 0px;">ManagementIPVerification</th>
+                <th data-colstart="9" style="padding-top: 0px;">ShowCommands</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+		</div>
+		<div id="tab-01a"  data-role="content" style="border-top-width: 0px; padding-top: 0px; width: 100%;">
+			<font size="3">Device Sanity Status</font><br>
+            <table data-role="table" id="tabletest-table" class="table-stroke ui-body-d ui-shadow ui-responsive">
+            <thead style="">
+            <tr class="ui-bar-d">
+                <th data-colstart="1" style="padding-top: 0px;">TimeStamp</th>
+                <th data-colstart="2" style="padding-top: 0px;">HostName</th>
+                <th data-colstart="3" style="padding-top: 0px;">ManagementIP</th>
+                <th data-colstart="4" style="padding-top: 0px;">ManagementInterface</th>
+                <th data-colstart="5" style="padding-top: 0px;">OSVersion</th>
+                <th data-colstart="6" style="padding-top: 0px;">State</th>
+                <th data-colstart="7" style="padding-top: 0px;">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+  		</div>
+		</div>
+		<div id="tabs-2">
+  		<div id="tab-02" data-role="content" style="border-top-width: 0px; padding-top: 0px; width: 100%;">
+    		<font size="3">Device Status</font><br>
+            <font size="2">Total number of devices:</font>
+            <table data-role="table" id="tabletest-table" class="table-stroke ui-body-d ui-shadow ui-responsive">
+            <thead style="">
+            <tr class="ui-bar-d">
+                <th data-colstart="1" style="padding-top: 0px;">HostName</th>
+                <th data-colstart="2" style="padding-top: 0px;">ConsoleIp1</th>
+                <th data-colstart="3" style="padding-top: 0px;">ConsoleIp2</th>
+                <th data-colstart="4" style="padding-top: 0px;">ManagementIp</th>
+                <th data-colstart="5" style="padding-top: 0px;">Login</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+		</div>
+		<div id="tab-02a"  data-role="content" style="border-top-width: 0px; padding-top: 0px; overflow: auto;">
+            <font size="3">Access Sanity Status</font><br>
+            <table data-role="table" id="tabletest-table" class="table-stroke ui-body-d ui-shadow ui-responsive">
+            <thead style="">
+            <tr class="ui-bar-d">
+                <th data-colstart="1" style="padding-top: 0px;">TimeStamp</th>
+                <th data-colstart="2" style="padding-top: 0px;">HostName</th>
+                <th data-colstart="3" style="padding-top: 0px;">AccessType</th>
+                <th data-colstart="4" style="padding-top: 0px;">IpAddress</th>
+                <th data-colstart="5" style="padding-top: 0px;">Status1</th>
+                <th data-colstart="6" style="padding-top: 0px;">Status2</th>
+                <th data-colstart="7" style="padding-top: 0px;">Status3</th>
+                <th data-colstart="8" style="padding-top: 0px;">State</th>
+                <th data-colstart="9" style="padding-top: 0px;">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+  		</div>
+		</div>
+  		<div id="tabs-3" data-role="content" style="border-top-width: 0px; padding-top: 0px; overflow: auto;">
+            <font size="3">Device Status</font><br>
+            <font size="2">Total number of devices:</font>
+            <table data-role="table" id="tabletest-table" class="table-stroke ui-body-d ui-shadow ui-responsive">
+            <thead style="">
+            <tr class="ui-bar-d">
+                <th data-colstart="1" style="padding-top: 0px;">HostName</th>
+                <th data-colstart="2" style="padding-top: 0px;">ManagementIP</th>
+                <th data-colstart="3" style="padding-top: 0px;">ConsoleIP</th>
+                <th data-colstart="4" style="padding-top: 0px;">Manufacturer</th>
+                <th data-colstart="5" style="padding-top: 0px;">Model</th>
+                <th data-colstart="6" style="padding-top: 0px;">PortMapping</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+            <font size="3">Connectivity Status</font><br>
+            <table data-role="table" id="tabletest-table" class="table-stroke ui-body-d ui-shadow ui-responsive">
+            <thead style="">
+            <tr class="ui-bar-d">
+                <th data-colstart="1" style="padding-top: 0px;">TimeStamp</th>
+                <th data-colstart="2" style="padding-top: 0px;">SrcDevName</th>
+                <th data-colstart="3" style="padding-top: 0px;">SrcPortName</th>
+                <th data-colstart="4" style="padding-top: 0px;">SrcSwitchPort</th>
+                <th data-colstart="5" style="padding-top: 0px;">SrcPortStatus</th>
+                <th data-colstart="6" style="padding-top: 0px;">DstDevName</th>
+                <th data-colstart="7" style="padding-top: 0px;">DstPortName</th>
+                <th data-colstart="8" style="padding-top: 0px;">DstSwitchPort</th>
+                <th data-colstart="9" style="padding-top: 0px;">DstPortStatus</th>
+                <th data-colstart="10" style="padding-top: 0px;">SwithcHostName</th>
+                <th data-colstart="11" style="padding-top: 0px;">Connectivity</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>	
+  		</div>
+        <div id="tabs-4" data-role="content" style="border-top-width: 0px; padding-top: 0px; overflow: auto;">
+            <font size="3">Device Status</font><br>
+            <font size="2">Total number of devices:</font>
+            <table data-role="table" id="tabletest-table" class="table-stroke ui-body-d ui-shadow ui-responsive">
+            <thead style="">
+            <tr class="ui-bar-d">
+                <th data-colstart="1" style="padding-top: 0px;">HostName</th>
+                <th data-colstart="2" style="padding-top: 0px;">ManagementIP</th>
+                <th data-colstart="3" style="padding-top: 0px;">ConsoleIP</th>
+                <th data-colstart="4" style="padding-top: 0px;">Manufacturer</th>
+                <th data-colstart="5" style="padding-top: 0px;">Model</th>
+                <th data-colstart="6" style="padding-top: 0px;">Configuration</th>
+                <th data-colstart="7" style="padding-top: 0px;">Learning_Packets</th>
+                <th data-colstart="8" style="padding-top: 0px;">Forwarding_Test</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+            <font size="3">Link Sanity Status</font><br>
+            <table data-role="table" id="tabletest-table" class="table-stroke ui-body-d ui-shadow ui-responsive">
+            <thead style="">
+            <tr class="ui-bar-d">
+                <th data-colstart="1" style="padding-top: 0px;">TimeStamp</th>
+                <th data-colstart="2" style="padding-top: 0px;">SrcDevName</th>
+                <th data-colstart="3" style="padding-top: 0px;">SrcPortName</th>
+                <th data-colstart="4" style="padding-top: 0px;">SrcPortIPAddress</th>
+                <th data-colstart="5" style="padding-top: 0px;">SrcPortStatus</th>
+                <th data-colstart="6" style="padding-top: 0px;">DstDevName</th>
+                <th data-colstart="7" style="padding-top: 0px;">DstPortName</th>
+                <th data-colstart="8" style="padding-top: 0px;">DstPortIPAddress</th>
+                <th data-colstart="9" style="padding-top: 0px;">DstPortStatus</th>
+                <th data-colstart="10" style="padding-top: 0px;">State</th>
+                <th data-colstart="11" style="padding-top: 0px;">Receive</th>
+                <th data-colstart="12" style="padding-top: 0px;">Transmit</th>
+                <th data-colstart="13" style="padding-top: 0px;">Min_Ave_Max</th>
+                <th data-colstart="14" style="padding-top: 0px;">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        </div>
+        <div id="tabs-5" data-role="content" style="border-top-width: 0px; padding-top: 0px; overflow: auto;">
+            <font size="3">Device Status</font><br>
+            <font size="2">Total number of devices:</font>
+            <table data-role="table" id="tabletest-table" class="table-stroke ui-body-d ui-shadow ui-responsive">
+            <thead style="">
+            <tr class="ui-bar-d">
+                <th data-colstart="1" style="padding-top: 0px;">HostName</th>
+                <th data-colstart="2" style="padding-top: 0px;">ManagementIP</th>
+                <th data-colstart="3" style="padding-top: 0px;">ConsoleIP</th>
+                <th data-colstart="4" style="padding-top: 0px;">Manufacturer</th>
+                <th data-colstart="5" style="padding-top: 0px;">Model</th>
+                <th data-colstart="6" style="padding-top: 0px;">Login</th>
+                <th data-colstart="7" style="padding-top: 0px;">Enable_Interface</th>
+                <th data-colstart="8" style="padding-top: 0px;">Verification</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+            <font size="3">Enable Interface</font><br>
+            <table data-role="table" id="tabletest-table" class="table-stroke ui-body-d ui-shadow ui-responsive">
+            <thead style="">
+            <tr class="ui-bar-d">
+                <th data-colstart="1" style="padding-top: 0px;">TimeStamp</th>
+                <th data-colstart="2" style="padding-top: 0px;">SrcDevName</th>
+                <th data-colstart="3" style="padding-top: 0px;">SrcPortName</th>
+                <th data-colstart="4" style="padding-top: 0px;">SrcAdminStatus</th>
+                <th data-colstart="5" style="padding-top: 0px;">SrcPortStatus</th>
+                <th data-colstart="6" style="padding-top: 0px;">SrcSpeed</th>
+                <th data-colstart="7" style="padding-top: 0px;">SrcMediaType</th>
+                <th data-colstart="8" style="padding-top: 0px;">DstDevName</th>
+                <th data-colstart="9" style="padding-top: 0px;">DstPortName</th>
+                <th data-colstart="10" style="padding-top: 0px;">DstAdminStatus</th>
+                <th data-colstart="11" style="padding-top: 0px;">DstPortStatus</th>
+                <th data-colstart="12" style="padding-top: 0px;">DstSpeed</th>
+                <th data-colstart="13" style="padding-top: 0px;">DstMediaType</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        </div><center>
+            <a href="#" id="" data-role="button" data-mini="true" data-inline="true" style="width: 100px;">Refresh</a>
+            <a href="#" id="" data-role="button" data-mini="true" data-inline="true" style="width: 100px;" >Done</a>
+            <a href="#" id="" data-role="button" data-mini="true" data-inline="true" style="width: 100px;" >Cancel</a>
+			</center>
+    </div>
+</div>
+<!-- End for popup of device sanity, access sanity, connectivity, link sanity and enable interface -->
+<div data-role="page" id="commitOptions" data-theme="a" style="width:30%; margin-left:auto; margin-right:auto;">
+        <div data-role="header" data-theme="d">
+            <h2>Commmit Options</h2>
+        </div>
+        <div data-role="content" data-theme="g" style="text-align:center">
+			Topology Configuration to be executed.
+            <table style="width:100%;">
+                <tr id="comOpDevSanityTr" style="display:none;">
+					<td style="width:15%;"><input type="checkbox" data-mini="true" checked="checked" id="comOpDevSanity"></td>
+					<td style="text-align:left;">Device Sanity</td>
+				</tr>
+				<tr id="comOpAccSanityTr" style="display:none;">
+					<td style="width:15%;"><input type="checkbox" data-mini="true" checked="checked" id="comOpAccSanity"></td>
+                    <td style="text-align:left;">Access Sanity</td>
+                </tr>
+				<tr id="comOpConnectivityTr" style="display:none;">
+					<td style="width:15%;"><input type="checkbox" data-mini="true" checked="checked" id="comOpConnectivity"></td>
+                    <td style="text-align:left;">Connectivity</td>
+                </tr>
+                <tr id="comOpEnaInterfaceTr" style="display:none;">
+					<td style="width:15%;"><input type="checkbox" data-mini="true" id="comOpEnaInterface"></td>
+                    <td style="text-align:left;">Enable Interface</td>
+                </tr>
+				<tr id="comOpLinkSanityTr" style="display:none;">
+					<td style="width:15%;"><input type="checkbox" data-mini="true" id="comOpLinkSanity"></td>
+                    <td style="text-align:left;">Link Sanity</td>
+                </tr>
+                <tr id="comOpStartResTr" style="display:none;">
+					<td style="width:15%;"><input type="checkbox" data-mini="true" id="comOpStartRes"></td>
+                    <td style="text-align:left;">Start of Reservation Option</td>
+                </tr>
+                <tr id="comOpEndResTr" style="display:none;">
+					<td style="width:15%;"><input type="checkbox" data-mini="true" id="comOpEndRes"></td>
+                    <td style="text-align:left;">End of Reservation Option</td>
+                </tr>
+            </table>
+            <a href="#" id="okCommitOptions" data-role="button" data-mini="true" data-inline="true" style="width: 40px;"  style="" >Ok</a>
+            <a href="#" id="cancelCommitOptions" data-role="button" data-mini="true" data-inline="true"  style="" >Cancel</a>
+        </div>
+</div>
+<!--  -->
+	<div data-role="page" id="LinkSanity" data-theme="a" data-mini="true" style="width: auto; height: 600px;">
+    <div data-role="header" data-theme="d">
+        <h1 style="">Connectivity Status</h1>
+    </div>
+        <div data-role="content" style="border-top-width: 0px; padding-top: 0px; overflow: auto;">
+            <font size="3">Device Status</font><br>
+            <font size="2">Total number of devices:</font>
+            <table data-role="table" id="tabletest-table" class="table-stroke ui-body-d ui-shadow ui-responsive">
+            <thead style="">
+            <tr class="ui-bar-d">
+                <th data-colstart="1" style="padding-top: 0px;">HostName</th>
+                <th data-colstart="2" style="padding-top: 0px;">ManagementIP</th>
+                <th data-colstart="3" style="padding-top: 0px;">ConsoleIP</th>
+                <th data-colstart="4" style="padding-top: 0px;">Manufacturer</th>
+                <th data-colstart="5" style="padding-top: 0px;">Model</th>
+                <th data-colstart="6" style="padding-top: 0px;">Configuration</th>
+                <th data-colstart="7" style="padding-top: 0px;">Learning_Packets</th>
+                <th data-colstart="8" style="padding-top: 0px;">Forwarding_Test</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+            <font size="3">Link Status</font><br>
+            <table data-role="table" id="tabletest-table" class="table-stroke ui-body-d ui-shadow ui-responsive">
+            <thead style="">
+            <tr class="ui-bar-d">
+                <th data-colstart="1" style="padding-top: 0px;">TimeStamp</th>
+                <th data-colstart="2" style="padding-top: 0px;">SrcDevName</th>
+                <th data-colstart="3" style="padding-top: 0px;">SrcPortName</th>
+                <th data-colstart="4" style="padding-top: 0px;">SrcPortIPAddress</th>
+                <th data-colstart="5" style="padding-top: 0px;">SrcPortStatus</th>
+                <th data-colstart="6" style="padding-top: 0px;">DstDevName</th>
+                <th data-colstart="7" style="padding-top: 0px;">DstPortName</th>
+                <th data-colstart="8" style="padding-top: 0px;">DstPortIPAddress</th>
+                <th data-colstart="9" style="padding-top: 0px;">DstPortStatus</th>
+                <th data-colstart="10" style="padding-top: 0px;">Status</th>
+                <th data-colstart="11" style="padding-top: 0px;">Receive</th>
+                <th data-colstart="12" style="padding-top: 0px;">Trasmit</th>
+                <th data-colstart="13" style="padding-top: 0px;">Min_Ave_Max</th>
+                <th data-colstart="14" style="padding-top: 0px;">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        </div>
+	<center>
+	<a href="#" id="okCommitOptions" data-role="button" data-mini="true" data-inline="true" style="width: 40px;"  style="" >Ok</a>
+	</center>
+</div>
+<!--  -->
+<!------################################# popup for connect disconnect line ####################################### ------> 
+<div data-role="page" id="lineTableDiv" data-theme="a">
+	<div data-role="header" data-theme="d" data-position="fixed" data-add-back-btn="false">
+    	<h2><span id="lineHeader"></span></h2>
+    </div>
+	<div data-role="content" style="margin-top:50px;">
+		<center>
+		<table data-role="table" id="tablineTable" class="table-stroke ui-body-d ui-shadow ui-responsive" data-column-btn-theme="a" data-column-popup-theme="a" data-mini="true">
+
+  			<thead>
+    		<tr class="ui-bar-d">
+			    <th>Name</th>
+			</tr>
+		  	</thead>
+
+			<tbody>
+			</tbody>
+		</table>
+		</center>
+		<table>
+			<tr>
+			<td>
+				<a id="okLine" href="#" data-role="button" style="width:100px;" data-mini="true" class="ui-link ui-btn ui-shadow ui-corner-all ui-mini ui-last-child" role="button" data-icon="check" data-transition="pop" data-direction="reverse">Ok</a>
+			</td>
+			<td>
+				<a id="canceLine" href="#" data-role="button" style="width:100px;" data-mini="true" class="ui-link ui-btn ui-shadow ui-corner-all ui-mini ui-last-child" role="button" data-icon="delete" data-transition="pop" data-direction="reverse" data-rel="back">Cancel</a>
+			</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<!----- end of connect and disconnet line-------->
+<!------################################# popup for flap ####################################### ------> 
+<div data-role="page" id="flapPopupDiv" data-theme="a">
+	<div data-role="header" data-theme="d" data-position="fixed" data-add-back-btn="false">
+    	<h2>Flap</h2>
+    </div>
+	<div data-role="content" style="margin-top:50px;">
+		<center>
+<!--
+		<table data-role="table" class="table-stroke ui-body-d ui-shadow ui-responsive" data-column-btn-theme="a" data-column-popup-theme="a" data-mini="true">
+			<tr><td>-->
+				Count 
+	<!--		</td><td> -->
+				<input type="text" id="flapCount" class="numbersOnly"/>
+	<!--		</td></tr>
+			<tr><td>-->
+				Delay 
+	<!--		</td><td>-->
+				<input type="text" id="flapDelay" class="numbersOnly"/>
+	<!--		</td></tr>
+  		</table>-->
+		<table>
+			<tr>
+			<td>
+				<a id="okFlap" href="#" data-role="button" style="width:100px;" data-mini="true" class="ui-link ui-btn ui-shadow ui-corner-all ui-mini ui-last-child" role="button" data-icon="check" data-transition="pop" data-direction="reverse">Ok</a>
+			</td>
+			<td>
+				<a id="canceFlap" href="#" data-role="button" style="width:100px;" data-mini="true" class="ui-link ui-btn ui-shadow ui-corner-all ui-mini ui-last-child" role="button" data-icon="delete" data-transition="pop" data-direction="reverse" data-rel="back">Cancel</a>
+			</td>
+			</tr>
+		</table>
+		</center>
+	</div>
+</div>
+<!----- end of connect and disconnet line-------->
+
+</body>
+</html>

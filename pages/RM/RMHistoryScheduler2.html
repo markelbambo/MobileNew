@@ -1,0 +1,105 @@
+<script src="../../scripts/ResourceManagement.js"></script>
+<div data-role="page" id="RMHistorySched2" data-theme="a">
+	<!-- header -->
+    <div id="header" data-role="header" data-theme="d" data-add-back-btn="true" data-position="fixed">
+		<h1 class="ui-title" role="heading">Resource Management</h1>
+    </div>
+	<div data-role="content" style="margin-top:50px;">
+		<div>
+			<div style="width:50%;float:left">
+			</div>
+<!--			<div id="paginations" style="float: right;width:50%;text-align: right;">
+			</div>--!>
+		</div>
+		<h3 style='margin-left:40%;'>&nbsp;&nbsp;&nbsp;Configuration Information</h3>
+		<div class='formTableDesign' align="left" style="height:auto;width:95.25%;margin-left:auto;margin-right:auto;">
+			<div style="padding-bottom:5px; padding-top:10px;">
+				<table class="form " style='margin-left:auto; margin-right:auto;'>
+					<tr> <!-- MAIN TR -->
+						<td style='text-align:left;'>Main Configuration Id: </td>
+						<td id="configMainConfigurationId"></td>
+					</tr>
+					<tr>
+						<td style='text-align:left;'>Configuration Name: </td>
+						<td id="config_name" readonly="yes">
+						</td>
+					</tr>
+					<tr>
+						<td style='text-align:left;'>User: </td>
+						<td id="configMainConfigId" readonly="yes"></td>
+					</tr>
+					<tr>
+						<td style='text-align:left;'>Job Type: </td>
+						<td id="configJob" readonly="yes"></td>
+					</tr>
+					<tr>
+						<td style='text-align:left;'>Resource Id: </td>
+						<td id="configResourceId" readonly="yes"></td>
+					</tr>
+				</table>
+			</div>
+		<td>
+			<a id="rmConnectivityLogs" href="ConnectivityLogs.html" style="width:100px;" data-role="button" data-mini="true" data-rel="dialog" >Connectivity Logs</a></td>
+		<div style="float: left;margin-top:0.5em;">
+        	<span>Total Matches: <span id="totalMatchesSchedHist2">0</span></span>
+        </div>
+		<!--<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+		    <select name="" id="limitTableRM">
+		        <option value="10">10</option>
+		        <option value="20">20</option>
+		        <option value="50">50</option>
+		    </select>
+		    <select name="" id="select-native-15">
+				<option value="1">Table View</option>
+	            <option value="2">Calendar View</option>
+		    </select>
+		</fieldset>-->
+		<table data-role="table" id="RMHistorySched2-table" data-mode="columntoggle" class="table-stroke ui-body-d ui-shadow ui-responsive" data-column-btn-theme="a" data-column-btn-text="Columns..." data-column-popup-theme="a" data-mini="true">
+  			<thead>
+    		<tr class="ui-bar-d">
+			    <th>Device ID</th>
+			    <th data-priority="6">HostName</th>
+			    <th data-priority="1">ManagementIP</th>
+			    <th data-priority="1">ConsoleIP</th>
+				<th data-priority="1">Manufacturer</th>
+				<th data-priority="6">Model</th>
+				<th data-priority="6">OS Version</th>
+			</tr>
+		  	</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+	<!-- footer -->
+        <div data-role="footer" data-position="fixed" data-theme="c" class="ui-bar" data-position="fixed">
+            <div id="dock">
+                <ul>
+                    <li>
+                        <a href="#"><span>Config</span><img class="configCar2" src="../../img/configeditor.png" alt="[Config Editor]" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>Admin</span><img class="adminCar" src="../../img/Admin.png" alt="[Administration]" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>RM</span><img class="rmCar" src="../../img/RM.png" alt="[Resource Management]" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>PM</span><img class="pmCar" src="../../img/PM.png" alt="[Power Management]" /></a>
+                    </li>
+                    <li>   
+                        <a href="#"><span>Stats</span><img class="statCar" src="../../img/Statistics.png" alt="[Statistics]" /></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+<!--    <div data-rel="page" id="LogsPop" data-theme="a">
+        <div data-role="header" data-theme="d">
+            <h2>Connectivity Logs</h2>
+        </div>
+        <div data-role="content" data-theme="a">
+        </div>
+    </div>--!>
+
+
+</div>

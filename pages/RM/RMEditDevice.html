@@ -1,0 +1,49 @@
+	<div data-role="page" id="EditDevice" data-theme="a">
+        <div data-role="header" data-theme="d" data-add-back-btn="true" data-position="fixed">
+            <h2>Edit Device</h2>
+        </div>
+        <div data-role="content" data-theme="a">
+			<table class="ui-responsive" data-mini="true" style="width: 100%">
+				<tr>
+					<div style="float: left;margin-top:0.5em;">
+        	<span>Total Matches: <span id="totalMatchesReservedRelease">0</span></span>
+        </div>
+
+					<table data-role="table" id="RMReleaseDevice-table" data-mode="columntoggle" class="table-stroke ui-body-d ui-shadow ui-responsive" data-column-btn-theme="a" data-column-btn-text="Columns..." data-column-popup-theme="a" data-mini="true">
+  			<thead>
+    		<tr class="ui-bar-d">
+			    <th>Hostname</th>
+			    <th data-priority="1">Start Date</th>
+			    <th data-priority="1">Start Time</th>
+      			<th data-priority="2">User</th>
+				<th data-priority="3">Application</th>
+				<th data-priority="6">Interval</th>
+				<th data-priority="6">Iteration</th>
+				<th data-priority="6">Iteration No.</th>
+				<th data-priority="1">End Date</th>
+				<th data-priority="1">End Time</th>
+				<th data-priority="6">Status</th>
+			</tr>
+		  	</thead>
+			<tbody>
+			</tbody>
+		</table>
+<!--			<table>
+				<tr>		
+					<td colspan="2" align="right">
+						<div data-role="controlgroup" data-type="horizontal" data-mini="true" style="text-align:right" >
+							<table>	
+								<tr>
+									<td>
+										<a id="ReleaseAll" href="#" data-role="button" style="width:100px;" data-mini="true">Release All</a>
+									</td>
+									<td>
+										<a id="ReleaseSpecificReserve" href="#" data-role="button" style="width:100px;" data-mini="true">Release</a>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</td>
+				</tr>
+			</table>--!>
+        </div>
